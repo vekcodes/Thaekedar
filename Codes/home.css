@@ -383,3 +383,12 @@ body {
   font-family: 'reem kufi';
   color: white;
 }
+#ft-copyright{
+  color: #fff;
+  font-family: 'News Cycle';
+  font-weight: 700;
+  font-size: 12px;
+  position: relative;
+  top: 320px;
+  text-align: center;
+}
