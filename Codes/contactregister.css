@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+/* nav */
+.th-nav {
+  width: 70%;
+  position: relative;
+  border-radius: 13px;
+  background-color: #003366;
+  height: 88px;
+  top: 20px;
+  left: 15%;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  color: #fff;
+  font-family: 'Reem Kufi';
+  z-index: 99;
+}
+/* nav thaekedar */
+.thaekedar {
+  position: absolute;
+  height: 35px;
+  top: 24px;
+  left: 101px;
+  text-transform: uppercase;
+  font-family: 'Reem kufi';
+}
+@media (max-width: 1366px) {
+  .thaekedar {
+    font-size: 25px; 
+    top: 26px; 
+    left: 89px; 
+  }
+}
+/* nav logo */
+#img-logo{
+  height: 48.65px;
+  width: 57.44px;
+  position: absolute;
+  left: 22px;
+  top: 18px;
+}
+@media (max-width: 1366px) {
+  #img-logo{
+    height: 43px;
+    width: auto;
+    position: absolute;
+    left: 26px;
+    top: 21px;
+  }
+}
+/* nav-link groups  */
+.nav-link-div {
+  position: absolute;
+  top: 25px;
+  left: 530px;
+  width: 699px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 110px;
+  font-size: 23px;
+}
+/* laptop  */
+@media screen and (max-width: 1366px) {
+  .nav-link-div {
+    position: absolute;
+    top: 25px;
+    left: 290px;
+    width: 699px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 62px;
+    font-size: 18px;
+  }
+
+}
+/* nav links with hover hover effect*/
+.nav-link{
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+.nav-link::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
+  background-color: #FFCC00;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.nav-link:hover:not(#signUpTxt):after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* signup Box with hover effect*/
+#signUpTxt{
+  color: #003366;
+}
+.signup-wrapper {
+  border-radius: 13px;
+  background-color: #ffcc00;
+  height: 39px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #003366;
+}
+.signup-wrapper:hover{
+  background-color: #ffda47;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 150px;
+  box-shadow: 3px 4px 11.4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  font-size: 13px;
+  color: #003366;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  border-radius: 15px;
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+#lgin{
+  text-decoration: none;
+}
+.nav-link-div a{
+  text-decoration: none;
+}

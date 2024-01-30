@@ -160,135 +160,101 @@ body {
 .nav-link-div a{
   text-decoration: none;
 }
-
-/* hero-part */
-
 #con-build{
   position: absolute;
-  top: 220px;
+  top: 150px;
   left: 18%;
   font-family: 'montserrat';
   font-size: 64px;
   font-weight: 900;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #003366;
 }
-/* hero th img */
-#heroimg{
-  position: absolute;
-  top: 220px;
-  left: 56%;
-  height: 350px;
-  width: 535px;
-}
-/* hero p */
 #herop{
   position: absolute;
   left: 18%;
-  top: 400px;
+  top: 250px;
   font-family: 'Reem kufi';
   font-size: 23px;
-  color: #003366;
+  color: #7B7B7B;
 }
-/* hero button groups */
-#herobut-wrap{
+#herop a{
+  color: #2793FF;
+}
+#herop a:hover{
+  color: #0051a1;
+}
+#signup-bx{
   position: absolute;
-  top: 510px;
+  top: 340px;
   left: 18%;
-  display: flex;
-  flex-direction: row;
-  gap: 20%;
 }
-.herobutton{
+.form-fields label{
   font-family: 'reem kufi';
   font-size: 23px;
+  color: #003366;
+  position: relative;
+}
+.form-fields input{
+  height: 49px;
+  width: 361px;
+  border-radius: 6px;
+  font-family: 'reem kufi';
+  font-size: 18px;
+  color: #003366;
+  border-color:#7A7A7A ;
+  text-indent: 10px;
+  border-width: 1px;
+}
+.form-fields input::placeholder{
+  color: #CBCBCB;
+  margin-left: 5px;
+  text-indent: 10px;
+
+}
+.form-fields{
+  padding-top: 7px;
+}
+#heroimg{
+  position: absolute;
+  top: 284px;
+  left: 50%;
+  height: 411px;
+  width: 619px;
+}
+#login-button{
+  background-color: #FFCC00;
+  border-radius: 6px;
   height: 39px;
-  border-color: #FFCC00;
+  width: 361px;
   border: none;
-  border-radius: 13px;
-  background-color: #FFCC00;
-}
-.herobutton:hover{
-  background-color: #ffda47;
-}
-
-/* second-section background */
-#scroller-bg{
   position: absolute;
-  top: 700px;
-  background-color: #003366;
-  height: 566px;
-  width: 100%;
+  top: 220px;
 }
-/* second-section-heading */
-#sc-h3{
-  text-align: center;
-  color: #fff;
-  font-family: 'Reem kufi';
-  font-size: 36px;
-}
-
-/* third section img with glass and text with buttons */
-#contactpic{
-  width: 100%;
-  position: absolute;
-  top: 1266px;
-  height: 520px;
-
-}
-#cn-glass{
-  top: 1266px;
-  width: 50%;
-  left: 25%;
-  position: relative;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 4px 4px 14.7px rgba(0, 0, 0, 0.25);
-  height: 287px;
-}
-#cn-h3{
-  position: relative;
-  top: 15%;
-  font-family: 'montserrat';
-  color: #003366;
-  font-weight: 900;
-  text-align: center;
-  font-size: 40px;
-}
-#cn-p{
-  position: relative;
-  top: 10%;
-  font-family: 'reem kufi';
-  font-size: 23px;
-  text-align: center;
-  color: #003366;
-}
-#cn-button{
-  height: 45px;
-  background-color: #FFCC00;
-  border: none;
-  border-radius: 9px;
+#login-button h3{
   font-family: 'reem kufi';
   font-size: 23px;
   color: #003366;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  position: absolute; 
-  top: 80%; 
-  left: 50%; 
-  transform: translate(-50%, -50%)
+  font-weight: 400;
+  margin: 0px;
 }
-#cn-button:hover{
+#login-button:hover{
   background-color: #ffda47;
 }
-
-/* footer-section */
+#or{
+  position: absolute;
+  top: 620px;
+  left: 18%;
+}
+/* footer */
 #thfooter{
   background-color: #003366;
   height: 360px;
   position: absolute;
   width: 100%;
-  top: 1786px;
+  top: 850px;
 }
 .ft-thaekedar {
   position: absolute;
