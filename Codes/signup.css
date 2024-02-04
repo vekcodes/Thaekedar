@@ -55,13 +55,13 @@ body {
 .nav-link-div {
   position: absolute;
   top: 25px;
-  left: 530px;
+  left: 340px;
   width: 699px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 110px;
+  gap: 58px;
   font-size: 23px;
 }
 /* laptop  */
@@ -162,10 +162,10 @@ body {
 }
 #con-build{
   position: absolute;
-  top: 150px;
+  top: 111px;
   left: 18%;
   font-family: 'montserrat';
-  font-size: 64px;
+  font-size: 50px;
   font-weight: 900;
   /* text-transform: uppercase; */
   color: #003366;
@@ -173,9 +173,9 @@ body {
 #herop{
   position: absolute;
   left: 18%;
-  top: 250px;
+  top: 188px;
   font-family: 'Reem kufi';
-  font-size: 23px;
+  font-size: 18px;
   color: #7B7B7B;
 }
 #herop a{
@@ -186,54 +186,52 @@ body {
 }
 #signup-bx{
   position: absolute;
-  top: 340px;
-  left: 18%;
+  top: 256px;
+  left: 17%;
 }
 .form-fields label{
   font-family: 'reem kufi';
-  font-size: 23px;
+  font-size: 20px;
   color: #003366;
   position: relative;
 }
 .form-fields input{
-  height: 49px;
-  width: 361px;
+  height: 30px;
+  width: 250px;
   border-radius: 6px;
   font-family: 'reem kufi';
-  font-size: 18px;
-  color: #003366;
-  border-color:#7A7A7A ;
   text-indent: 10px;
-  border-width: 1px;
+  border: 1px solid #003366;
 }
 .form-fields input::placeholder{
   color: #CBCBCB;
   margin-left: 5px;
   text-indent: 10px;
+  font-size: 14px;
 
 }
 .form-fields{
-  padding-top: 7px;
+  padding-top: 9px;
 }
 #heroimg{
   position: absolute;
-  top: 284px;
-  left: 50%;
+  top: 210px;
+  left: 47%;
   height: 411px;
   width: 619px;
 }
 #signup-button{
   background-color: #FFCC00;
   border-radius: 6px;
-  height: 39px;
-  width: 361px;
+  height: 30px;
+  width: 250px;
   border: none;
   position: absolute;
-  top: 400px;
+  top: 325px;
 }
 #signup-button h3{
   font-family: 'reem kufi';
-  font-size: 23px;
+  font-size: 20px;
   color: #003366;
   display: flex;
   justify-content: center;
@@ -245,16 +243,20 @@ body {
 }
 #or{
   position: absolute;
-  top: 800px;
-  left: 18%;
+  top: 624px;
+  left: 25%;
+  font-size: 14px;
+  font-family: 'montserrat';
+  color: #787878;
 }
+
 /* footer */
 #thfooter{
   background-color: #003366;
   height: 360px;
   position: absolute;
   width: 100%;
-  top: 1000px;
+  top: 800px;
 }
 .ft-thaekedar {
   position: absolute;

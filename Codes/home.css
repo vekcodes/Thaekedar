@@ -55,17 +55,17 @@ body {
 .nav-link-div {
   position: absolute;
   top: 25px;
-  left: 530px;
+  left: 340px;
   width: 699px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 110px;
+  gap: 58px;
   font-size: 23px;
 }
 /* laptop  */
-@media screen and (max-width: 1366px) {
+/* @media screen and (max-width: 1366px) {
   .nav-link-div {
     position: absolute;
     top: 25px;
@@ -79,7 +79,7 @@ body {
     font-size: 18px;
   }
 
-}
+} */
 /* nav links with hover hover effect*/
 .nav-link{
   position: relative;
@@ -177,7 +177,7 @@ body {
 #heroimg{
   position: absolute;
   top: 220px;
-  left: 56%;
+  left: 50%;
   height: 350px;
   width: 535px;
 }

@@ -1,0 +1,49 @@
+#ag-heading{
+  font-size: 34px;
+  font-family: 'montserrat';
+  font-weight: 900;
+  color: #003366;
+  margin-top: 65px;
+  padding-left: 18%;
+}
+#ag-highlight{
+  background-color: #FFCC00;
+  height: 20px;
+  width: 140px;
+  position: absolute;
+  top: 175px;
+  left: 22.8%;
+  z-index: -1;
+}
+#search-form{
+  height: 45px;
+  width: 250px;
+  position: absolute;
+  top: 180px;
+  left: 67%;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 4px 25.1px rgba(0, 0, 0, 0.25)
+}
+#search-input{
+  height: 100%;
+  width: 80%;
+  border-top-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+  border: 0;
+  outline: 0;
+  text-indent: 10px;
+  /* border: 0;
+  outline: 0; */
+
+}
+#search-button{
+  height: 100%;
+  width: 20%;
+  background-color: #003366;
+  border-top-right-radius: 13px;
+  border-bottom-right-radius: 13px;
+  border: 0;
+  outline: 0;
+}
