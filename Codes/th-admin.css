@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#admin-sidebar{
+    height: 722px;
+    width: 314px;
+    background-color: #003366;
+}
+#admin-logo{
+    height: 48.65px;
+    width: 57.44px;
+    position: absolute;
+    top: 40px;
+    left: 29px;
+}
+#admin-sidebar h1{
+    color: #fff;
+    font-family: 'reem kufi';
+    margin: 0;
+    position: absolute;
+    top: 45px;
+    left: 90px;
+}
+#admin-menu p{
+    /* width: 100%; */
+    font-family: 'reem kufi';
+    font-size: 24px;
+    background-color: #113B65;
+    color: #fff;
+    margin-left: 15px;             
+}
+#admin-menu a{
+    text-decoration:none;
+}
+#admin-menu{
+    position: absolute;
+    top: 250px;
+}
+#admin-menu p:hover{
+    background-color: #275B8E;
+}
