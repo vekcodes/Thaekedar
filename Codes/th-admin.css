@@ -3,9 +3,10 @@ body{
     padding: 0;
 }
 #admin-sidebar{
-    height: 722px;
+    height:100vh;
     width: 314px;
     background-color: #003366;
+    position: fixed;
 }
 #admin-logo{
     height: 48.65px;
@@ -39,4 +40,111 @@ body{
 }
 #admin-menu p:hover{
     background-color: #275B8E;
+}
+h2{
+    position: absolute;
+    left: 45%;
+    top: 0;
+    font-family: 'montserrat';
+    font-size: 32px;
+    font-weight: 900;
+    color: #003366;
+}
+#application-placement{
+    position: absolute;
+    left: 30%;
+    top: 100px;
+    height: 600px;
+    width: 62%;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    /* background-color: aqua; */
+}
+#applicants-box{
+    display: grid;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: #fff;
+    height: 90px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 6px 4px 9.9px rgba(0, 0, 0, 0.25);
+}
+#applicantheading{
+    /* position: absolute; */
+    font-family: 'montserrat';
+    font-size: 14px;
+    color: #003366;
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#view-application{
+    background-color: #00FF1A;
+    border-radius: 5px;
+    color: #003366;
+    border: 0;
+    height: 25px;
+    width: 90px;
+    font-family: 'montserrat';
+    font-weight: 900;
+    font-size: 8px;
+    margin-top: 20px;
+    margin-left: 80px;
+}
+#view-application:hover{
+    background-color: #5cff6c;
+}
+#cn-grid{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+}
+#applicant-name{
+    height: 120px;
+    width: 376px;
+}
+#app-he{
+    font-family: 'montserrat';
+    font-size: 16px;
+    color: #B8B8B8;
+}
+#app-data{
+    font-family: 'montserrat';
+    font-size: 20px;
+    color: #003366;
+}
+#appdec-placement{
+    position: absolute;
+    left: 30%;
+    top: 130px;
+    height: 600px;
+    width: 62%;
+    /* background-color: aqua; */
+}
+#desc-box{
+    width: 370px;
+    padding:5px 20px 20px 10px;
+    border-radius: 19px;
+    border:1px solid #FFCC00;
+    font-family: 'reem kufi';
+    color: #003366;
+    box-shadow: 6px 4px 9.9px rgba(0, 0, 0, 0.25);
+}
+.app-btn{
+    background-color: #FFCC00;
+    height: 42px;
+    width: 120px;
+    font-family: 'montserrat';
+    color: #003366;
+    border: 0;
+    border-radius: 4px;
+}
+#applicant-links{
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+.app-btn:hover{
+    background-color: #ffda47;
 }

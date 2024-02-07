@@ -12,7 +12,7 @@
   width: 140px;
   position: absolute;
   top: 175px;
-  left: 22.8%;
+  left: 24%;
   z-index: -1;
 }
 #search-form{
@@ -48,19 +48,21 @@
   outline: 0;
 }
 #contact-center-placement{
-  display: flex;
   position: absolute;
   width: 70%;
   left: 15%;
-  top: 400px;
+  top: 290px;
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
 }
 #contact-cards{
+  margin: 0;
   height: 300px;
   width: 236px;
   border-radius: 32px;
+  box-shadow: 5px 4px 25.1px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
   margin-left: 50px;
-  box-shadow: 5px 4px 25.1px rgba(0, 0, 0, 0.25)
-  
 }
 #contact-photo{
 height: 70%;
@@ -68,10 +70,10 @@ width: 100%;
 border-top-left-radius: 32px;
 border-top-right-radius: 32px;
 }
+
 #top-rated{
   position: absolute;
-  top: 27px;
-  left: 100px;
+  transform: translate(-236px,-286px);
 }
 #contact-name{
   font-family: 'montserrat';
@@ -109,6 +111,5 @@ border-top-right-radius: 32px;
   font-size: 13px;
   font-weight: 700;
   position: absolute;
-  top: 254px;
-  left: 239px;
+  transform: translate(12px,-41px);
 }
