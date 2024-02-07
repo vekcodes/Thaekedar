@@ -53,7 +53,7 @@
 			<div id="cn-glass">
 				<h3 id="cn-h3">Add Your’s Contact Now</h3>
 				<p id="cn-p">By Registering you can add your agency or your occupation in <br>Construction niche as a contact in Thaekedar.</p>
-				<button id="cn-button">Learn More</button>
+				<a href="contactregister.html"><button id="cn-button">Learn More</button></a>
 			</div>
 		</div>
 		<div id="thfooter">

@@ -48,11 +48,18 @@
   <div id="applicant-links">
     <a href="https://instagram.com"><button class="app-btn">Instagram</button></a>
     <a href="https://facebook.com"><button class="app-btn">Facebook</button></a>
-    <a href="https://triyani.com"><button class="app-btn">website</button></a>
+    <a href="https://triyani.com"><button class="app-btn">Website</button></a>
   </div>
   <div id="download-photo">
-    <a href="" download><div>
-
+    <a href="photo/ag2.jpg" download><div>
+      <p>Download Photo</p>
+      <img src="photo/Download.png" alt="">
+    </div></a>
+  </div>
+  <div id="download-docx">
+    <a href="photo/ag2.jpg" download><div>
+      <p>Download <br>Documentation/ license</p>
+      <img src="photo/Download.png" alt="">
     </div></a>
   </div>
 </div>
