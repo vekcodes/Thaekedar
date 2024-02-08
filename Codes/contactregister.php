@@ -27,7 +27,7 @@
           </div>
         </div>
         <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
-        <a href="profile.html" id="lgin"><div class="signup-wrapper">
+        <a href="profile.php" id="lgin"><div class="signup-wrapper">
             <div class="nav-link" id="signUpTxt">Profile</div>
         </div>
         </a>

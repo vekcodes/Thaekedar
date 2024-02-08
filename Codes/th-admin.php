@@ -18,7 +18,7 @@
             <a href="applicants.php"><p>Approve/Decline Contact</p></a>
         </div>
         <div id="mgmtcn">
-            <a href="managecn.html"><p>Manage contact</p></a>
+            <a href="managecn.php"><p>Manage contact</p></a>
         </div>
     </div>
     </div>

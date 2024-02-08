@@ -4,7 +4,7 @@
   	<meta charset="utf-8">
   	<meta name="viewport" content="initial-scale=1, width=device-width">
   	
-  	<link rel="stylesheet"  href="home.css" />
+  	<link rel="stylesheet"  href="index.css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
 							</div>
 						</div>
       			<a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
-      			<a href="signup.html" id="lgin"><div class="signup-wrapper">
+      			<a href="signup.php" id="lgin"><div class="signup-wrapper">
         				<div class="nav-link" id="signUpTxt">SignUp</div>
       			</div>
 						</a>

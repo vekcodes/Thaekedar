@@ -18,7 +18,7 @@
             <a href="applicants.php"><p>Approve/Decline Contact</p></a>
         </div>
         <div id="mgmtcn">
-            <a href="managecn.html"><p>Manage contact</p></a>
+            <a href="managecn.php"><p>Manage contact</p></a>
         </div>
     </div>
     </div>
@@ -43,7 +43,7 @@
   </div>
   <div id="applicant-desc">
     <p id="app-he">Description</p>
-    <div id="desc-box"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni veritatis asperiores cupiditate ipsum deserunt! Natus, earum autem quidem nostrum illo porro corrupti cum suscipit eum beatae magnam ducimus possimus nesciunt assumenda repellendus sunt corporis harum praesentium qui alias architecto quod.</p></div>
+    <div id="desc-box"><p>Established in 2021, Triyani Construction boasts [Number] years of crafting exceptional projects across diverse sectors. From dream homes to intricate infrastructure, our team of seasoned professionals leverages their expertise to deliver quality you can trust. </p></div>
   </div>
   <div id="applicant-links">
     <a href="https://instagram.com"><button class="app-btn">Instagram</button></a>
@@ -52,6 +52,7 @@
   </div>
   <div id="download-photo">
     <a href="photo/ag2.jpg" download><div>
+      <img src="photo/ag2.jpg" alt="applicant-photo" id="applicant-photo">
       <p>Download Photo</p>
       <img src="photo/Download.png" alt="">
     </div></a>
@@ -63,6 +64,11 @@
     </div></a>
   </div>
 </div>
+<div id="appdec-btn">
+  <button id="approve-btn">Approve</button>
+  <button id="decline-btn">Decline</button>
+</div>
+<span style="margin: 100px;"></span>
 </div>
 </body>
 </html>

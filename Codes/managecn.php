@@ -18,19 +18,26 @@
         <a href="applicants.php"><p>Approve/Decline Contact</p></a>
     </div>
     <div id="mgmtcn">
-        <a href="managecn.php"><p>Manage contact</p></a>
+        <a href="managecn.html"><p>Manage contact</p></a>
     </div>
 </div>
 </div>
-<h2>Applicants Contact</h2>
-<div id="application-placement">
+<h2>Manage Contacts</h2>
+<div id="addcn-placement">
+<a href="contactregister.php"><div id="add-cn">
+  <p>Add Contact</p>
+  <img src="photo/Add.png" alt="adcn">
+</div>
+</a>
+</div>
+<div id="manage-placement">
 <?php
-  for($i=0;$i<=10;$i++){
-    echo'<div id="applicants-box">
-      <p id="applicantheading">Triyani Construction - Agency</p>
-      <a href="approvedecline.php"><button id="view-application">View Application</button></a>
-      </div>';
-  }
+    for($i=0;$i<=100;$i++){
+      echo'<div id="applicants-box">
+        <p id="applicantheading">Triyani Construction - Agency</p>
+        <button id="remove-btn">Remove</button>
+        </div>';
+    }  
 ?>
 </div>
 </body>

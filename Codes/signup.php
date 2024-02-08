@@ -29,14 +29,14 @@
           </div>
         </div>
         <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
-        <a href="login.html" id="lgin"><div class="signup-wrapper">
+        <a href="login.php" id="lgin"><div class="signup-wrapper">
             <div class="nav-link" id="signUpTxt">Login</div>
         </div>
         </a>
     </div>
 </div>
 <h1 id="con-build">Sign Up</h1>
-<p id="herop">Already a member? <a href="login.html">Log in</a></p>
+<p id="herop">Already a member? <a href="login.php">Log in</a></p>
 <div id="signup-bx">
 <form action="">
   <div class="form-fields">
