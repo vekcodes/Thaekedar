@@ -1,8 +1,10 @@
 #contact-img{
-  position:absolute;
-  z-index:1;
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) ;
+  z-index:999;
   height: 360px;
-  margin-left: 18%;
   width: 60%;
   border-radius: 19px;
   border:1px solid #FFCC00;

@@ -43,8 +43,8 @@
 </form>
 </div>
 
-<div id="contact-img">
-  <button id="close"><img src="photo/Group 26.png" alt="cross"></button>
+<div id="contact-img" style="display:none">
+  <button id="close" onclick="hidecontactform()"><img src="photo/Group 26.png" alt="cross"></button>
   <img src="photo/ag2.jpg" alt="cn-img" id="cn-img">
   <div id="cn-details">
     <h3 id="cn-heading">Triyani Construction Pvt ltd</h3>
@@ -75,7 +75,7 @@ for($i=0;$i<=10;$i++){
   <p id="contact-location">Balaju, Banasthali</p>
   <div id="gtcn-rating">
   <div id="get-contact">
-  <a href="#popup1"><button>Get Contact</button></a>
+  <a class ="get-contact-form" onclick= " showcontactform()"><button>Get Contact</button></a>
   </div>
   <div id="ratings">
     <img src="photo/Star.png" alt="rating">
@@ -86,5 +86,16 @@ for($i=0;$i<=10;$i++){
 }
 ?>
 </div>
+<script>
+
+function showcontactform(){
+  var f =document.getElementById("contact-img");
+  f.style.display='block';
+}
+function hidecontactform(){
+  var f =document.getElementById("contact-img");
+  f.style.display='none';
+}
+</script>
 </body>
 </html>

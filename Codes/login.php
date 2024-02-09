@@ -38,7 +38,7 @@
 <h1 id="con-build">Log In</h1>
 <p id="herop">Don’t have an account? <a href="signup.php"> Sign Up</a></p>
 <div id="signup-bx">
-<form action="">
+<form action="login-request.php">
   <div class="form-fields">
   <label>Email</label><br>
   <input type="email" placeholder="Enter Email"><br>
