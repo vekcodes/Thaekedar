@@ -1,20 +1,22 @@
 #contact-img{
-  margin-top: 150px;
+  position:absolute;
+  z-index:1;
   height: 360px;
   margin-left: 18%;
   width: 60%;
   border-radius: 19px;
   border:1px solid #FFCC00;
   font-family: 'reem kufi';
+  background-color:#fff;
   color: #003366;
   box-shadow: 6px 4px 9.9px rgba(0, 0, 0, 0.25);
-  display: inline-block;
 }
 #cn-img{
   height: 262px;
   width: 262px;
   border-radius: 19px;
   margin: 50px 10px 0 40px;
+  z-index: 999;
 }
 #cn-details{
   height: 300px;
@@ -45,7 +47,7 @@
   font-size: 13px;
 }
 #desc{
-  width: 530px;
+  width: 488px;
 }
 #bold{
   font-family: 'montserrat';
@@ -75,7 +77,7 @@
 }
 #close{
   position: absolute;
-  transform: translate(972px,10px);
+  transform: translate(867px,10px);
   color: #D9D9D9;
   border: 0;
   border-radius: 100px;

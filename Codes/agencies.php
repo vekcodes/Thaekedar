@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet"  href="index.css" />
+  <link rel="stylesheet" href="viewcontact.css">
   <link rel="stylesheet" href="global-contact.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
@@ -40,6 +41,30 @@
   <input type="text" id="search-input" placeholder="Search here">
   <button id="search-button"><img src="photo/Search.png" alt="search"></button>
 </form>
+</div>
+
+<div id="contact-img">
+  <button id="close"><img src="photo/Group 26.png" alt="cross"></button>
+  <img src="photo/ag2.jpg" alt="cn-img" id="cn-img">
+  <div id="cn-details">
+    <h3 id="cn-heading">Triyani Construction Pvt ltd</h3>
+    <div id="cn-location">
+      <img src="photo/Location.png" alt="location" id="location-img">
+      <p id="location">Balaju, Banasthali</p>
+    </div>
+    <p id="desc">Established in 2021, Triyani Construction boasts [Number] years of crafting exceptional projects across diverse sectors. From dream homes to intricate infrastructure, our team of seasoned professionals leverages their expertise to deliver quality you can trust.</p>
+    <div id="cn-email-phone">
+      <p><span id="bold">Email: </span>info@triyani.com.np</p>
+      <p><span id="bold">Phone no: </span>9862468975</p>
+    </div>
+    <div id="btns">
+      <a href=""><button class="cn-btn">Instagram</button></a>
+      <a href=""><button class="cn-btn">Facebook</button></a>
+      <a href=""><button class="cn-btn">Website</button></a>
+    </div>
+  </div>
+</div>
+
 <div id="contact-center-placement">
 <?php
 for($i=0;$i<=10;$i++){
@@ -50,7 +75,7 @@ for($i=0;$i<=10;$i++){
   <p id="contact-location">Balaju, Banasthali</p>
   <div id="gtcn-rating">
   <div id="get-contact">
-    <button type="submit">Get Contact</button>
+  <a href="#popup1"><button>Get Contact</button></a>
   </div>
   <div id="ratings">
     <img src="photo/Star.png" alt="rating">
