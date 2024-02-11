@@ -87,7 +87,6 @@ for($i=0;$i<=10;$i++){
 ?>
 </div>
 <script>
-
 function showcontactform(){
   var f =document.getElementById("contact-img");
   f.style.display='block';
@@ -95,6 +94,7 @@ function showcontactform(){
 function hidecontactform(){
   var f =document.getElementById("contact-img");
   f.style.display='none';
+  
 }
 </script>
 </body>

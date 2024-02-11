@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +31,15 @@
           </div>
         </div>
         <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
-        <a href="profile.php" id="lgin"><div class="signup-wrapper">
+        <div class="dropdown">
+          <div class="signup-wrapper">
             <div class="nav-link" id="signUpTxt">Profile</div>
+          </div>
+          <div class="dropdown-content">
+            <a href="logout.php">logout</a>
+            <a href="contactregister.php">Add Contact</a>
+          </div>
         </div>
-        </a>
     </div>
 </div>
 <h2 id="title">Add Your's <br>Contact</h2>
@@ -157,3 +166,6 @@
 </body>
 <script src="script.js"></script>
 </html>
+<?php }else{
+ header("Location: login.php"); 
+}?>

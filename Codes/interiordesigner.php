@@ -40,6 +40,7 @@
   <input type="text" id="search-input" placeholder="Search here">
   <button id="search-button"><img src="photo/Search.png" alt="search"></button>
 </form>
+
 <div id="contact-center-placement">
 <?php
 for($i=0;$i<=10;$i++){

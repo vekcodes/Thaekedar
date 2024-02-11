@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
+    header("Location: index.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,15 +45,24 @@
 </div>
 <h1 id="con-build">Log In</h1>
 <p id="herop">Don’t have an account? <a href="signup.php"> Sign Up</a></p>
+<?php
+    //email not matched error 
+    if(isset($_GET['error'])){
+      echo"<div id='messbx'>
+      <p id='thdai'>Thaekedar Dai says: </p>
+      <p id='mess'>". $_GET['error']. " </p>
+      </div>";
+    }
+  ?>
 <div id="signup-bx">
-<form action="login-request.php">
+<form action="loginRequest.php" method="post">
   <div class="form-fields">
   <label>Email</label><br>
-  <input type="email" placeholder="Enter Email"><br>
+  <input type="email" placeholder="Enter Email" name="email" required><br>
   </div>
   <div class="form-fields">
   <label>Password</label><br>
-  <input type="password" placeholder="Enter Password"><br>
+  <input type="password" placeholder="Enter Password" name="password" required><br>
   </div>
   <button type="submit" id="login-button">
     <h3>Login</h3>

@@ -55,13 +55,13 @@ body {
 .nav-link-div {
   position: absolute;
   top: 25px;
-  left: 340px;
+  left: 413px;
   width: 699px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 58px;
+  gap: 73px;
   font-size: 23px;
 }
 /* laptop  */
@@ -174,6 +174,7 @@ body {
   position: absolute;
   left: 18%;
   top: 188px;
+  margin-bottom: 5px;
   font-family: 'Reem kufi';
   font-size: 18px;
   color: #7B7B7B;
@@ -186,7 +187,7 @@ body {
 }
 #signup-bx{
   position: absolute;
-  top: 256px;
+  top: 260px;
   left: 17%;
 }
 .form-fields label{
@@ -243,8 +244,8 @@ body {
 }
 #or{
   position: absolute;
-  top: 624px;
-  left: 25%;
+  top: 619px;
+  left: 23.5%;
   font-size: 14px;
   font-family: 'montserrat';
   color: #787878;
@@ -365,4 +366,35 @@ body {
   position: relative;
   top: 320px;
   text-align: center;
+}
+/* #errormess{
+  color: rgb(255, 35, 35);
+  font-family: 'reem kufi';
+  margin: 0;
+  font-size: 14px;
+  position: absolute;
+  top: 420px;
+  left: 23%;
+}
+#errormess span{
+  color: #003366;
+} */
+#messbx{
+  margin-left: 628px;
+  margin-top: 63px;
+  height: 50px;
+  width: 300px;
+  padding: 30px;
+  border-radius: 9px;
+  box-shadow: 3px 4px 11.4px rgba(0, 0, 0, 0.25);
+}
+#thdai{
+  margin: 0;
+  font-family: 'montserrat';
+  font-weight: 900;
+  color: #003366;
+}
+#mess{
+  color: rgb(255, 32, 32);
+  font-family: 'reem kufi';
 }

@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,19 +32,32 @@
 							</div>
 						</div>
       			<a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
+						<?php
+							if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
+
+								<div class="dropdown">
+								<div class="signup-wrapper">
+        				<div class="nav-link" id="signUpTxt">Profile</div>
+      					</div>
+								<div class="dropdown-content">
+								<a href="logout.php">logout</a>
+								<a href="contactregister.php">Add Contact</a>
+								</div>
+								</div>
+							<?php } else{ ?>
       			<a href="signup.php" id="lgin"><div class="signup-wrapper">
         				<div class="nav-link" id="signUpTxt">SignUp</div>
       			</div>
-						</a>
+						</a><?php } ?>
     		</div>
   	</div>
 		<h1 id="con-build">Connect<br>Build.</h1>
 		<p id="herop">Your every needs of resources while building a <br>house or be it outsourcing</p>
 		<img src="photo/th1.png" alt="heroimg" id="heroimg">
 		<div id="herobut-wrap">
-			<a href="agencies.html"><button class="herobutton">Agencies</button></a>
-			<a href="architect.html"><button class="herobutton">Architect</button></a>
-			<a href="suppliers.html"><button class="herobutton">Suppliers</button></a>
+			<a href="agencies.php"><button class="herobutton">Agencies</button></a>
+			<a href="architect.php"><button class="herobutton">Architect</button></a>
+			<a href="suppliers.php"><button class="herobutton">Suppliers</button></a>
 		</div>
 		<div id="scroller-bg">
 			<h3 id="sc-h3">Find your Construction needs  </h3>
@@ -53,7 +70,12 @@
 			<div id="cn-glass">
 				<h3 id="cn-h3">Add Your’s Contact Now</h3>
 				<p id="cn-p">By Registering you can add your agency or your occupation in <br>Construction niche as a contact in Thaekedar.</p>
-				<a href="contactregister.html"><button id="cn-button">Learn More</button></a>
+				<?php
+					if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { ?>
+						<a href="contactregister.php"><button id="cn-button">Learn More</button></a>
+				<?php }else{ ?>
+						<a href="login.php"><button id="cn-button">Learn More</button></a>
+				<?php } ?>
 			</div>
 		</div>
 		<div id="thfooter">

@@ -37,25 +37,35 @@
 </div>
 <h1 id="con-build">Sign Up</h1>
 <p id="herop">Already a member? <a href="login.php">Log in</a></p>
+<?php
+    //password not matched error 
+    if(isset($_GET['error'])){
+      echo"<div id='messbx'>
+      <p id='thdai'>Thaekedar Dai says: </p>
+      <p id='mess'>". $_GET['error']. " </p>
+      </div>";
+    }
+  ?>
 <div id="signup-bx">
-<form action="">
+
+<form action="signupRequest.php" method="post" name="signupform">
   <div class="form-fields">
   <label>Name</label> <br>
-  <input type="text" placeholder="Enter Name"><br>
+  <input type="text" placeholder="Enter Name" name="name" required><br>
   </div>
   <div class="form-fields">
   <label>Email</label><br>
-  <input type="email" placeholder="Enter Email"><br>
+  <input type="email" placeholder="Enter Email" name="email" required><br>
   </div>
   <div class="form-fields">
   <label>Password</label><br>
-  <input type="password" placeholder="Enter Password"><br>
+  <input type="password" placeholder="Enter Password" name="password" id="pass" required><br>
   </div>
   <div class="form-fields">
   <label>Confirm Password</label><br>
-  <input type="password" placeholder="Confirm Password">
+  <input type="password" placeholder="Confirm Password" id="cpass" name="cpassword" required>
   </div>
-  <button type="submit" id="signup-button">
+  <button type="submit" id="signup-button" name="submit">
     <h3>Sign Up</h3>
   </button>
 </form>
@@ -92,5 +102,6 @@
     </div>
     <div id="ft-copyright">Copyright © 2024 Thaekedar. All rights reserved.</div>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
