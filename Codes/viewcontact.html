@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="viewcontact.css">
+  <link rel="stylesheet" href="view.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
   <title>Document</title>
 </head>
 <body>
-<div id="contact-img">
-  <button id="close"><img src="photo/Group 26.png" alt="cross"></button>
+<div id="contact-img" style="display: none" >
+  <button id="close" onclick="hidecontactform()"><img src="photo/Group 26.png" alt="cross"></button>
   <img src="photo/ag2.jpg" alt="cn-img" id="cn-img">
   <div id="cn-details">
     <h3 id="cn-heading">Triyani Construction Pvt ltd</h3>
@@ -30,6 +31,33 @@
       <a href=""><button class="cn-btn">Website</button></a>
     </div>
   </div>
+  <div id="ratingdisp">
+    <p>RATE :</p>
+    <select id="rate">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    </div>
+    <div id="comment">
+      <p>Comment :</p>
+      <form action="comment.php">
+        <input type="text" id="comment-input">
+        <button id="comment-submit"><img src="photo/Email Send.png" alt=""></button>
+      </form>
+    </div>
+<div id="cmnt">
+  <p id="cmnth">Comments :</p>
+  <div id="cmnt-slide">
+    <button class="cmnt-slide"><img src="photo/Group 27.png"></button>
+    <button class="cmnt-slide"><img src="photo/Group 28.png"></button>
+  </div>
+  <div id="slide-comments">
+    <p>The Quality of their work is exceptional, I had only worked twice with them still so much fullfiling </p>
+  </div>
+</div>
 </div>
 </body>
 </html>

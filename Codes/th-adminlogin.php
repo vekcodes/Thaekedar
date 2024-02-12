@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     header("Location: index.php");
     exit();
-}
+}else{
 
 ?>
 <!DOCTYPE html>
@@ -11,8 +11,8 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thaekedar-signup</title>
-  <link rel="stylesheet" href="signup.css">
+  <title>Thaekedar-login</title>
+  <link rel="stylesheet" href="login.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 		<style>
@@ -20,33 +20,9 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 		</style>
 </head>
 <body>
-  <div class="th-nav">
-    <b class="thaekedar">THAEKEDAR</b>
-    <img src="photo/thaekedarlogo.png" alt="logo" id="img-logo">
-    <div class="nav-link-div">
-        <div><a class="nav-link" href="index.php">Home</a></div>
-        <a href="agencies.php"><div class="nav-link">Agencies </div></a>
-        <div class="dropdown">
-
-          <div class="nav-link" id="peoples">Peoples</div>
-
-          <div class="dropdown-content">
-            <a href="interiordesigner.php">Interior Designer</a>
-            <a href="architect.php">Architect</a>
-            <a href="engineer.php">Engineer</a>
-          </div>
-        </div>
-        <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
-        <a href="login.php" id="lgin"><div class="signup-wrapper">
-            <div class="nav-link" id="signUpTxt">Login</div>
-        </div>
-        </a>
-    </div>
-</div>
-<h1 id="con-build">Sign Up</h1>
-<p id="herop">Already a member? <a href="login.php">Log in</a></p>
+<h1 id="con-build">Admin Log In</h1>
 <?php
-    //password not matched error 
+    //email not matched error 
     if(isset($_GET['error'])){
       echo"<div id='messbx'>
       <p id='thdai'>Thaekedar Dai says: </p>
@@ -55,26 +31,17 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     }
   ?>
 <div id="signup-bx">
-
-<form action="signupRequest.php" method="post" name="signupform">
-  <div class="form-fields">
-  <label>Name</label> <br>
-  <input type="text" placeholder="Enter Name" name="name" required><br>
-  </div>
+<form action="loginRequest.php" method="post">
   <div class="form-fields">
   <label>Email</label><br>
   <input type="email" placeholder="Enter Email" name="email" required><br>
   </div>
   <div class="form-fields">
   <label>Password</label><br>
-  <input type="password" placeholder="Enter Password" name="password" id="pass" required><br>
+  <input type="password" placeholder="Enter Password" name="password" required><br>
   </div>
-  <div class="form-fields">
-  <label>Confirm Password</label><br>
-  <input type="password" placeholder="Confirm Password" id="cpass" name="cpassword" required>
-  </div>
-  <button type="submit" id="signup-button" name="submit">
-    <h3>Sign Up</h3>
+  <button type="submit" id="login-button">
+    <h3>Login</h3>
   </button>
 </form>
 </div>
@@ -110,6 +77,6 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     </div>
     <div id="ft-copyright">Copyright © 2024 Thaekedar. All rights reserved.</div>
 </div>
-<script src="script.js"></script>
 </body>
 </html>
+<?php }?>

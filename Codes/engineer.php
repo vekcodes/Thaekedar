@@ -28,10 +28,24 @@
           </div>
         </div>
         <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
-        <a href="signup.php" id="lgin"><div class="signup-wrapper">
-            <div class="nav-link" id="signUpTxt">SignUp</div>
-        </div>
-        </a>
+        <?php
+          session_start();
+					if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
+
+						<div class="dropdown">
+						<div class="signup-wrapper">
+        		<div class="nav-link" id="signUpTxt">Profile</div>
+      			</div>
+						<div class="dropdown-content">
+						<a href="logout.php">logout</a>
+						<a href="contactregister.php">Add Contact</a>
+						</div>
+						</div>
+					<?php } else{ ?>
+      	    <a href="signup.php" id="lgin"><div class="signup-wrapper">
+        			<div class="nav-link" id="signUpTxt">SignUp</div>
+      			  </div>
+					</a><?php } ?>
     </div>
 </div>
 <h2 id="ag-heading">Find Engineer That <br>suits you</h2>
