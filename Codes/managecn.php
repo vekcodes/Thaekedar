@@ -35,8 +35,12 @@
     for($i=0;$i<=100;$i++){
       echo'<div id="applicants-box">
         <p id="applicantheading">Triyani Construction - Agency</p>
+        <div id="remupd-flex">
         <button id="remove-btn">Remove</button>
-        </div>';
+        <button id="update-btn">Update</button>
+        </div>
+        </div>
+        ';
     }  
 ?>
 </div>

@@ -272,6 +272,10 @@ h2{
     display: grid;
     grid-template-columns: repeat(3,minmax(0,1fr));
 }
+#remupd-flex{
+    display: flex;
+    gap: 20px;
+}
 #remove-btn{
     background-color: #FF4444;
     border-radius: 5px;
@@ -282,8 +286,19 @@ h2{
     font-family: 'montserrat';
     font-weight: 900;
     font-size: 8px;
-    margin-top: 20px;
-    margin-left: 80px;
+    margin-left: 20px;
+}
+#update-btn{
+    background-color: #36ff4a;
+    border-radius: 5px;
+    color: #003366;
+    border: 0;
+    height: 25px;
+    width: 90px;
+    font-family: 'montserrat';
+    font-weight: 900;
+    font-size: 8px;
+    
 }
 #remove-btn:hover{
     background-color: #ff6666;

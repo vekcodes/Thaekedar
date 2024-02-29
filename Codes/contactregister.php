@@ -48,15 +48,15 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   <div id="first-contact">
   <div class="form-fields">
   <label>Name</label> <br>
-  <input type="text" placeholder="Enter Name" name="name"><br>
+  <input type="text" placeholder="Enter Name" name="name" required><br>
   </div>
   <div class="form-fields">
   <label>Location</label><br>
-  <input type="text" placeholder="Enter Location" name="location"><br>
+  <input type="text" placeholder="Enter Location" name="location" required><br>
   </div>
   <div class="form-fields">
   <label>Designation</label><br>
-  <select name="Designation" >
+  <select name="Designation" required>
     <option value="Agency">Agency</option>
     <option value="Interior Designer">Interior Designer</option>
     <option value="Architect">Architect</option>
@@ -65,13 +65,13 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   </select>
   </div>
   <div class="form-fields">
-  <label>Email</label><br>
-  <input type="email" placeholder="Enter your Email" name="email">
+  <label>Phone no</label><br>
+  <input type="number" placeholder="Enter your phone no" name="phoneno" required>
   </div>
 </div>
 <div class="form-desc" id="desc-grp">
 <label>Description</label><br>
-<textarea type="text" placeholder="Enter small description about your agency/service and experience" class="desc" name="description"></textarea>
+<textarea type="text" placeholder="Enter small description about your agency/service and experience" class="desc" name="description" required></textarea>
 </div>
 <div id="cn-heading">
   <p id="form-cn-det">Contact Details</p>
@@ -79,8 +79,8 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 </div>
 <div id="contact-detail">
   <div class="form-fields">
-  <label>Phone no</label> <br>
-  <input type="text" placeholder="Enter your phone no" name="phoneno"><br>
+  <label>Email</label> <br>
+  <input type="email" placeholder="Enter your Email" name="email"><br>
   </div>
   <div class="form-fields">
   <label>Instagram link</label><br>
