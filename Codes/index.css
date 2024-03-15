@@ -103,7 +103,14 @@ body {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
+#scroll-content{
+  position: absolute;
+  width: 70%;
+  left: 15%;
+  top: 150px;
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
 /* signup Box with hover effect*/
 #signUpTxt{
   color: #003366;
@@ -211,7 +218,9 @@ body {
 .herobutton:hover{
   background-color: #ffda47;
 }
-
+#contact-cards{
+  background-color: #fff;
+}
 /* second-section background */
 #scroller-bg{
   position: absolute;

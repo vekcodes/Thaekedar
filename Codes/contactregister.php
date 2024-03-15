@@ -48,7 +48,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   <div id="first-contact">
   <div class="form-fields">
   <label>Name</label> <br>
-  <input type="text" placeholder="Enter Name" name="name" required><br>
+  <input type="text" placeholder="Enter Name" name="name" value="" disabled><br>
   </div>
   <div class="form-fields">
   <label>Location</label><br>
@@ -80,7 +80,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 <div id="contact-detail">
   <div class="form-fields">
   <label>Email</label> <br>
-  <input type="email" placeholder="Enter your Email" name="email"><br>
+  <input type="email" placeholder="Enter your Email" name="email" value="<?php echo $_SESSION['user_email']; ?>" disabled><br>
   </div>
   <div class="form-fields">
   <label>Instagram link</label><br>
@@ -130,7 +130,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     <input type="file" name="docx" id="drag-input" hidden accept=".png,.jpeg,.jpg,.pdf">
     <p id="drag-formats">Supported formats: png,jpeg,jpg,pdf</p>
 </div>
-<button id="ca-submit">Submit Contact Application</button>
+<button id="ca-submit">Submit Profile for Verification</button>
 </form>
 
 <!-- footer -->

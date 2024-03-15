@@ -89,12 +89,15 @@
 #close:hover{
   background-color: #FF9A9A;
 }
-#ratingdisplay{
+#ratingnviewdisplay{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   font-family: 'montserrat';
   font-size: 14px;
   width: 200px;
-  margin-top: 58px;
-  margin-left: 90px;
+  margin-top: 15pxpx;
+  margin-left: 35px;
 }
 #ratingnumb{
   height: 35px;

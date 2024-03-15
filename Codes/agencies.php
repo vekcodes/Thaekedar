@@ -40,6 +40,7 @@
 						<div class="dropdown-content">
 						<a href="logout.php">logout</a>
 						<a href="contactregister.php">Add Contact</a>
+						<a href="notification.php">Notification</a>
 						</div>
 						</div>
 					<?php } else{ ?>
@@ -79,9 +80,11 @@ if(!isset($_SESSION['user_id']) && !isset($_SESSION['user_email']) ){
       <a href=""><button class="cn-btn">Website</button></a>
     </div>
   </div>
-  <div id="ratingdisplay">
-    <p>RATINGS :</p>
+  <div id="ratingnviewdisplay">
+    <p style="margin: 0;">RATINGS :</p>
     <button id="ratingnumb">5 STAR</button>
+    <p style="margin: 0;">Views :</p>
+    <button id="ratingnumb">545</button>
   </div>
 <div id="cmnt">
   <p id="cmnth">Comments :</p>
@@ -119,6 +122,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
       <a href=""><button class="cn-btn">Website</button></a>
     </div>
   </div>
+  <form action="cnmtnrating">
   <div id="ratingdisp">
     <p>RATE :</p>
     <select id="rate">
@@ -128,12 +132,14 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
       <option value="4">4</option>
       <option value="5">5</option>
     </select>
+    <p style="margin: 0;">Views :</p>
+    <button id="ratingnumb" style="width:40px;">545</button>
     </div>
     <div id="comment">
       <p>Comment :</p>
-      <form action="comment.php">
         <input type="text" id="comment-input">
-        <button id="comment-submit"><img src="photo/Email Send.png" alt=""></button>
+        <input type="submit" id="comment-submit">
+        <!-- <button id="comment-submit"><img src="photo/Email Send.png" alt=""></button> -->
       </form>
     </div>
 <div id="cmnt">

@@ -9,6 +9,7 @@ session_start();
   	<meta name="viewport" content="initial-scale=1, width=device-width">
   	
   	<link rel="stylesheet"  href="index.css" />
+	  <link rel="stylesheet" href="global-contact.css">
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
@@ -40,8 +41,9 @@ session_start();
         				<div class="nav-link" id="signUpTxt">Profile</div>
       					</div>
 								<div class="dropdown-content">
+								<a href="contactregister.php">My profile</a>
+								<a href="notification.php">Notification</a>
 								<a href="logout.php">logout</a>
-								<a href="contactregister.php">Add Contact</a>
 								</div>
 								</div>
 							<?php } else{ ?>
@@ -62,7 +64,25 @@ session_start();
 		<div id="scroller-bg">
 			<h3 id="sc-h3">Find your Construction needs  </h3>
 			<div id="scroll-content">
-				
+			<?php
+				for($i=0;$i<=2;$i++){
+				echo '<div id="contact-cards">
+				<img src="photo/ag2.jpg" alt="agency-photo" id="contact-photo">
+				<img src="photo/Group 25.png" id="top-rated">
+				<p id="contact-name">Triyani Construction</p>
+				<p id="contact-location">Balaju, Banasthali</p>
+				<div id="gtcn-rating">
+				<div id="get-contact">
+					<button type="submit">Get Contact</button>
+				</div>
+				<div id="ratings">
+					<img src="photo/Star.png" alt="rating">
+					<p>5</p>
+				</div>
+				</div>
+				</div>';
+				}
+?>
 			</div>
 		</div>
 		<div id="contact-section">
