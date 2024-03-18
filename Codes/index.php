@@ -41,7 +41,7 @@ session_start();
         				<div class="nav-link" id="signUpTxt">Profile</div>
       					</div>
 								<div class="dropdown-content">
-								<a href="contactregister.php">My profile</a>
+								<a href="contactregister.php">Add Contact</a>
 								<a href="notification.php">Notification</a>
 								<a href="logout.php">logout</a>
 								</div>

@@ -5,6 +5,8 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="script.js">
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thaekedar- Contact Register</title>
@@ -36,27 +38,21 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
             <div class="nav-link" id="signUpTxt">Profile</div>
           </div>
           <div class="dropdown-content">
-            <a href="logout.php">logout</a>
             <a href="contactregister.php">Add Contact</a>
+						<a href="notification.php">Notification</a>
+            <a href="logout.php">logout</a>
           </div>
         </div>
     </div>
 </div>
 <h2 id="title">Add Your's <br>Contact</h2>
 <div id="highlight"></div>
-<form action="">
-  <div id="first-contact">
-  <div class="form-fields">
-  <label>Name</label> <br>
-  <input type="text" placeholder="Enter Name" name="name" value="" disabled><br>
-  </div>
-  <div class="form-fields">
-  <label>Location</label><br>
-  <input type="text" placeholder="Enter Location" name="location" required><br>
-  </div>
-  <div class="form-fields">
-  <label>Designation</label><br>
-  <select name="Designation" required>
+<form action="insertcontact.php" method="post" enctype="multipart/form-data">
+
+<div class="form-fields" id="designation">
+  <p style="margin: 0; font-family: 'reem kufi'"> Are you an Agency , people or suppliers? </p><br>
+  <select id="selection" name="designation" required>
+    <option value="">-----Select Your Designation-----</option>
     <option value="Agency">Agency</option>
     <option value="Interior Designer">Interior Designer</option>
     <option value="Architect">Architect</option>
@@ -64,14 +60,23 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     <option value="Supplier">Supplier</option>
   </select>
   </div>
+  <div id="first-contact">
+  <div class="form-fields">
+  <label>Name</label> <br>
+  <input type="text" placeholder="Enter Name" name="name" value="" disabled id="entername"><br>
+  </div>
+  <div class="form-fields">
+  <label>Location</label><br>
+  <input type="text" placeholder="Enter Location" name="location" required><br>
+  </div>
   <div class="form-fields">
   <label>Phone no</label><br>
   <input type="number" placeholder="Enter your phone no" name="phoneno" required>
   </div>
 </div>
 <div class="form-desc" id="desc-grp">
-<label>Description</label><br>
-<textarea type="text" placeholder="Enter small description about your agency/service and experience" class="desc" name="description" required></textarea>
+<label>Description</label> <p style="margin: 0; display:inline; font-family: 'reem kufi'; font-size: 13px;">(Max length: 253 words)</p><br>
+<textarea type="text" placeholder="Enter small description about your agency/service and experience" class="desc" name="description" required maxlength="253"></textarea>
 </div>
 <div id="cn-heading">
   <p id="form-cn-det">Contact Details</p>
@@ -80,7 +85,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 <div id="contact-detail">
   <div class="form-fields">
   <label>Email</label> <br>
-  <input type="email" placeholder="Enter your Email" name="email" value="<?php echo $_SESSION['user_email']; ?>" disabled><br>
+  <input type="email" placeholder="Enter your Email" name="email" value="<?php echo $_SESSION['user_email']; ?>" required><br>
   </div>
   <div class="form-fields">
   <label>Instagram link</label><br>
@@ -109,8 +114,8 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     <div class="choose-wrapper"onclick="inputclick()">
       <div class="nav-link" id="chooseTxt">Choose file</div>
     </div>
-    <input type="file" name="photo" id="drag-input" hidden accept=".png,.jpeg,.jpg">
-    <p id="drag-formats">Supported formats: png,jpeg,jpg</p>
+    <input type="file" name="photo" id="drag-input" hidden accept=".png,.jpeg,.jpg" required>
+    <p id="drag-formats">Supported formats: png,jpeg,jpg</p> 
 </div>
 
 <div id="docx-heading">
@@ -119,18 +124,18 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 </div>
 
 <!-- document / license -->
-<div id="docx-drag-area"onclick="inputclick()">
+<div id="docx-drag-area"onclick="inputclick1()">
     <img src="photo/Upload to Cloud.png" alt="drop" id="drag-img"><br>
     <p class="drag-p1">Click to upload</p>
     <p class="drag-p2">or</p>
 
-    <div class="choose-wrapper"onclick="inputclick()">
+    <div class="choose-wrapper"onclick="inputclick1()">
       <div class="nav-link" id="chooseTxt">Choose file</div>
     </div>
-    <input type="file" name="docx" id="drag-input" hidden accept=".png,.jpeg,.jpg,.pdf">
+    <input type="file" name="docx" id="drag-input1" hidden accept=".png,.jpeg,.jpg,.pdf" required>
     <p id="drag-formats">Supported formats: png,jpeg,jpg,pdf</p>
 </div>
-<button id="ca-submit">Submit Profile for Verification</button>
+<button id="ca-submit" name="ca_submit">Submit Profile for Verification</button>
 </form>
 
 <!-- footer -->
@@ -164,7 +169,28 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     <div id="ft-copyright">Copyright © 2024 Thaekedar. All rights reserved.</div>
 </div>
 </body>
-<script src="script.js"></script>
+<script>
+const input = document.getElementById("drag-input");
+const input1 = document.getElementById("drag-input1");
+
+function inputclick(){
+  input.click();
+}
+function inputclick1(){
+  input1.click();
+}
+// when user selects agency then input is undisabled
+const entername = document.getElementById('entername');
+const selection = document.getElementById("selection");
+selection.addEventListener('change', function() {
+  if (selection.value === 'Agency' || selection.value == 'Supplier') {
+    entername.disabled = false;
+  } else {
+    entername.disabled = true;
+  }
+});
+
+</script>
 </html>
 <?php }else{
  header("Location: login.php"); 

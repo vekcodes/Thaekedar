@@ -38,9 +38,9 @@
         		<div class="nav-link" id="signUpTxt">Profile</div>
       			</div>
 						<div class="dropdown-content">
-						<a href="logout.php">logout</a>
 						<a href="contactregister.php">Add Contact</a>
 						<a href="notification.php">Notification</a>
+						<a href="logout.php">logout</a>
 						</div>
 						</div>
 					<?php } else{ ?>

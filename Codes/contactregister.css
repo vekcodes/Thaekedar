@@ -207,7 +207,13 @@ body {
   grid-template-columns: auto auto ;
   position: absolute;
   left: 23%;
-  top: 360px;
+  top: 528px;
+}
+#designation{
+  position: absolute;
+  left: 23%;
+  top: 385px;
+
 }
 #contact-detail{
   width: 60%;
@@ -215,11 +221,11 @@ body {
   grid-template-columns: auto auto ;
   position: absolute;
   left: 23%;
-  top: 980px;
+  top: 1167px;
 }
 #desc-grp{
   position: absolute;
-  top: 600px;
+  top: 758px;
   left: 23%;
 }
 .desc{
@@ -268,7 +274,7 @@ body {
 #cn-heading{
   position: absolute;
   left: 43%;
-  top: 875px;
+  top: 1083px;
   width: 500px;
 }
 #form-ph{
@@ -291,7 +297,7 @@ body {
 #photo-heading{
   position: absolute;
   left: 35%;
-  top: 1250px;
+  top: 1396px;
   width: 250px;
 }
 #ph-drag-area{
@@ -301,7 +307,7 @@ body {
   border-radius: 52px;
   position: absolute;
   left: 22%;
-  top: 1300px;
+  top: 1461px;
 }
 #drag-img{
   position: absolute;
@@ -387,7 +393,7 @@ body {
 #docx-heading{
   position: absolute;
   left: 30%;
-  top: 1760px;
+  top: 1823px;
   width: 250px;
 }
 #docx-drag-area{
@@ -397,7 +403,7 @@ body {
   border-radius: 52px;
   position: absolute;
   left: 22%;
-  top: 1800px;
+  top: 1885px;
 }
 #drag-img{
   position: absolute;
@@ -461,7 +467,7 @@ body {
   background-color: #FFCC00;
   color: #003366;
   position: absolute;
-  top: 2200px;
+  top: 2270px;
   left: 40%;
 }
 
