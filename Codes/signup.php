@@ -49,7 +49,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     //password not matched error 
     if(isset($_GET['error'])){
       echo"<div id='messbx'>
-      <p id='thdai'>Thaekedar Dai says: </p>
+      <p id='thdai'>Thaekedar says: </p>
       <p id='mess'>". $_GET['error']. " </p>
       </div>";
     }

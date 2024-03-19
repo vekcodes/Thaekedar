@@ -30,9 +30,9 @@ $sql = "insert into contacts(designation,name,location,phoneno,email,description
 $result = mysqli_query($conn,$sql);
 
 if($result){
-	header("Location: contactregister.php?error=Successfully Submitted");
+	header("Location: contactregister.php?message=Successfully Submitted");
 }else{
-	header("Location: contactregister.php?error=Try Again");
+	header("Location: contactregister.php?message=Try Again");
 }
 }
 ?>

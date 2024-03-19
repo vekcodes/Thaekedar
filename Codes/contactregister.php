@@ -45,6 +45,15 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
         </div>
     </div>
 </div>
+<?php
+    //password not matched error 
+    if(isset($_GET['message'])){
+      echo"<div id='messbx'>
+      <p id='thdai'>Thaekedar says: </p>
+      <p id='mess'>". $_GET['message']. " </p>
+      </div>";
+    }
+  ?>
 <h2 id="title">Add Your's <br>Contact</h2>
 <div id="highlight"></div>
 <form action="insertcontact.php" method="post" enctype="multipart/form-data">
@@ -188,6 +197,26 @@ selection.addEventListener('change', function() {
   } else {
     entername.disabled = true;
   }
+});
+
+window.onload = function() {
+    // Get the message element
+    var messageElement = document.getElementById("message");
+    if (messageElement) {
+      // Remove the element or hide it using CSS
+      messageElement.remove();   // Remove the element
+      // or
+      messageElement.style.display = "none";  // Hide it
+    }
+  };
+  function removeQueryParams() {
+    var urlWithoutParams = window.location.origin + window.location.pathname;
+    window.history.replaceState({}, document.title, urlWithoutParams);
+}
+
+// Call the function on document load
+document.addEventListener('DOMContentLoaded', function() {
+    removeQueryParams();
 });
 
 </script>

@@ -103,7 +103,21 @@ body {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
+#messbx{
+  font-family: 'montserrat';
+  color: #003366;
+  margin-left: 680px;
+  margin-top: 63px;
+  height: 50px;
+  width: 300px;
+  padding: 30px;
+  border-radius: 9px;
+  box-shadow: 3px 4px 11.4px rgba(0, 0, 0, 0.25);
+}
+#mess{
+  color: rgb(255, 32, 32);
+  font-family: 'reem kufi';
+}
 /* signup Box with hover effect*/
 #signUpTxt{
   color: #003366;
