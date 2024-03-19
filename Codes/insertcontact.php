@@ -2,9 +2,9 @@
 
 include 'db_connect.php';
 
-if($_SERVER['REQUEST_METHOD']=== 'POST'){
+if(isset($_POST['ca_submit'])){
 $designation = $_POST['designation'];
-$name = $_POST['name'];
+$cname = $_POST['name'];
 $location = $_POST['location'];
 $phoneno = $_POST['phoneno'];
 $description = $_POST['description'];
@@ -13,32 +13,26 @@ $iglink = $_POST['iglink'];
 $fblink = $_POST['fblink'];
 $weblink = $_POST['weblink'];
 
-// //photo upload
-// echo "<pre>";
-// 	print_r($_FILES['photo']);
-// 	echo "</pre>";
+//moving photo to folder and $dst to link in db process
+$file = $_FILES['photo']['name'];
+$dst ="./user_image/.$file";
+$dst_db ="user_image/.$file";
+move_uploaded_file($_FILES['photo']['tmp_name'],$dst);
 
-	$img_name = $_FILES['photo']['name'];
-	$img_size = $_FILES['photo']['size'];
-	$tmp_name = $_FILES['photo']['tmp_name'];
-	$error = $_FILES['photo']['error'];
+//moving document to folder and $dst to link in db process
+$file_docx = $_FILES['docx']['name'];
+$dst_docx ="./user_docx/.$file_docx";
+$dst_db_docx ="user_docx/.$file_docx";
+move_uploaded_file($_FILES['docx']['tmp_name'],$dst_docx);
 
-			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-			$img_ex_lc = strtolower($img_ex);
+$sql = "insert into contacts(designation,name,location,phoneno,email,description,iglink,fblink,weblink,photo,document)values('$designation','$cname','$location','$phoneno','$email','$description','$iglink','$fblink','$weblink','$dst','$dst_docx')";
 
-			$allowed_exs = array("jpg", "jpeg", "png"); 
+$result = mysqli_query($conn,$sql);
 
-			if (in_array($img_ex_lc, $allowed_exs)) {
-				$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-				$img_upload_path = 'user_image/'.$new_img_name;
-				move_uploaded_file($tmp_name, $img_upload_path);
-
-				// Insert into Database
-				$sql = "INSERT INTO contacts(photo,designation,name,location,phoneno,email,description,iglink,fblink,weblink) VALUES('$new_img_name',$designation,$name,$location,$phoneno,$email,$description,$iglink,$fblink,$weblink)";
-				$result = mysqli_query($conn, $sql);
-        if($result){
-				header("Location: index.php");
-        }
-			}
+if($result){
+	header("Location: contactregister.php?error=Successfully Submitted");
+}else{
+	header("Location: contactregister.php?error=Try Again");
+}
 }
 ?>
