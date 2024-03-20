@@ -31,7 +31,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     }
   ?>
 <div id="signup-bx">
-<form action="loginRequest.php" method="post">
+<form action="adminloginRequest.php" method="post">
   <div class="form-fields">
   <label>Email</label><br>
   <input type="email" placeholder="Enter Email" name="email" required><br>
