@@ -1,6 +1,18 @@
 <?php
+include('db_connect.php');
 session_start();
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
+    //fetching name data from users
+    $user_id = $_SESSION['user_id'];
+    $namesql = "SELECT name FROM users WHERE user_id = ?";
+    $stmt = $conn->prepare($namesql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $name = $row['name'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +84,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   <div id="first-contact">
   <div class="form-fields">
   <label>Name</label> <br>
-  <input type="text" placeholder="Enter Name" name="name" value="" disabled id="entername"><br>
+  <input type="text" placeholder="Enter Name" name="name" value="<?php echo $name; ?>" disabled id="entername"><br>
   </div>
   <div class="form-fields">
   <label>Location</label><br>
