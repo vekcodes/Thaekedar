@@ -1,3 +1,11 @@
+<?php
+include 'db_connect.php';
+$contact_id = $_POST['contact_id'];
+$sql = "SELECT * FROM contacts WHERE c_id = '$contact_id'";
+$result = mysqli_query($conn,$sql);
+$row = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,38 +35,38 @@
 <div id="cn-grid">
   <div id="applicant-name">
     <p id="app-he">Name - Designation</p>
-    <h3 id="app-data">Triyani Construction - Agency</h3>
+    <h3 id="app-data"><?php echo $row['name']?> - <?php echo $row['designation']?></h3>
   </div>
   <div id="applicant-location">
     <p id="app-he">Location</p>
-    <h3 id="app-data">Banasthali, Balaju</h3>
+    <h3 id="app-data"><?php echo $row['location']?></h3>
   </div>
   <div id="applicant-email">
     <p id="app-he">Email</p>
-    <h3 id="app-data">info@triyani.com.np</h3>
+    <h3 id="app-data"><?php echo $row['email']?></h3>
   </div>
   <div id="applicant-no">
     <p id="app-he">Phone no</p>
-    <h3 id="app-data">9864562320</h3>
+    <h3 id="app-data"><?php echo $row['phoneno']?></h3>
   </div>
   <div id="applicant-desc">
     <p id="app-he">Description</p>
-    <div id="desc-box"><p>Established in 2021, Triyani Construction boasts [Number] years of crafting exceptional projects across diverse sectors. From dream homes to intricate infrastructure, our team of seasoned professionals leverages their expertise to deliver quality you can trust. </p></div>
+    <div id="desc-box"><p><?php echo $row['description']?></p></div>
   </div>
   <div id="applicant-links">
-    <a href="https://instagram.com"><button class="app-btn">Instagram</button></a>
-    <a href="https://facebook.com"><button class="app-btn">Facebook</button></a>
-    <a href="https://triyani.com"><button class="app-btn">Website</button></a>
+    <a href="<?php echo $row['iglink']?>"><button class="app-btn">Instagram</button></a>
+    <a href="<?php echo $row['fblink']?>"><button class="app-btn">Facebook</button></a>
+    <a href="<?php echo $row['weblink']?>"><button class="app-btn">Website</button></a>
   </div>
   <div id="download-photo">
-    <a href="photo/ag2.jpg" download><div>
-      <img src="photo/ag2.jpg" alt="applicant-photo" id="applicant-photo">
+    <a href="<?php echo $row['photo']?>" download><div>
+      <img src="<?php echo $row['photo']?>" alt="applicant-photo" id="applicant-photo">
       <p>Download Photo</p>
       <img src="photo/Download.png" alt="">
     </div></a>
   </div>
   <div id="download-docx">
-    <a href="photo/ag2.jpg" download><div>
+    <a href="<?php echo $row['document']?>" download><div>
       <p>Download <br>Documentation/ license</p>
       <img src="photo/Download.png" alt="">
     </div></a>

@@ -5,12 +5,6 @@ $sql="select * from contacts where designation = 'Agency'";
 $sql_run = mysqli_query($conn,$sql);
 $check_agency = mysqli_num_rows($sql_run)>0;
 ?>
-<?php
-
-if($check_agency){
-
-  while($row = mysqli_fetch_array($sql_run)){
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,44 +19,9 @@ if($check_agency){
   <title>Thaekedar-Agencies</title>
 </head>
 <body>
-  <div class="th-nav">
-    <b class="thaekedar">THAEKEDAR</b>
-    <img src="photo/thaekedarlogo.png" alt="logo" id="img-logo">
-    <div class="nav-link-div">
-        <div><a class="nav-link" href="index.php">Home</a></div>
-        <a href="agencies.php"><div class="nav-link">Agencies </div></a>
-        <div class="dropdown">
+<?php
+require('navbar.php'); ?>
 
-          <div class="nav-link" id="peoples">Peoples</div>
-
-          <div class="dropdown-content">
-            <a href="interiordesigner.php">Interior Designer</a>
-            <a href="architect.php">Architect</a>
-            <a href="engineer.php">Engineer</a>
-          </div>
-        </div>
-        <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
-        <?php
-          session_start();
-					if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
-
-						<div class="dropdown">
-						<div class="signup-wrapper">
-        		<div class="nav-link" id="signUpTxt">Profile</div>
-      			</div>
-						<div class="dropdown-content">
-						<a href="contactregister.php">Add Contact</a>
-						<a href="notification.php">Notification</a>
-						<a href="logout.php">logout</a>
-						</div>
-						</div>
-					<?php } else{ ?>
-      	    <a href="signup.php" id="lgin"><div class="signup-wrapper">
-        			<div class="nav-link" id="signUpTxt">SignUp</div>
-      			  </div>
-					</a><?php } ?>
-    </div>
-</div>
 <?php
     //message after rating and comment
     if(isset($_GET['message'])){
@@ -80,11 +39,32 @@ if($check_agency){
   <button id="search-button"><img src="photo/Search.png" alt="search"></button>
 </form>
 </div>
+<?php
+
+echo'<div id="contact-center-placement">';
+if($check_agency){
+while($row = mysqli_fetch_array($sql_run)){
+    echo '<div id="contact-cards">
+    <img src="'.$row['photo'] .'" alt="agency-photo" id="contact-photo">
+    <img src="photo/Group 25.png" id="top-rated">
+    <p id="contact-name">'.$row['name'].'</p>
+    <p id="contact-location">'.$row['location'].'</p>
+    <div id="gtcn-rating">
+    <div id="get-contact">
+    <a class ="get-contact-form" onclick= " showcontactform('.$row['c_id'].')"><button>Get Contact</button></a>
+    </div>
+    <div id="ratings">
+      <img src="photo/Star.png" alt="rating">
+      <p>5</p>
+    </div>
+    </div>
+  </div>';
+?>
 <?php 
 if(!isset($_SESSION['user_id']) && !isset($_SESSION['user_email']) ){
 ?>
-<div id="contact-img" style="display:none">
-  <button id="close" onclick="hidecontactform()"><img src="photo/Group 26.png" alt="cross"></button>
+<div class="contact-img" style="display:none" data-id="<?php echo $row['c_id']?>">
+  <button id="close" onclick="hidecontactform(<?php echo $row['c_id']?>)"><img src="photo/Group 26.png" alt="cross"></button>
   <img src="<?php echo $row['photo']?>" alt="cn-img" id="cn-img">
   <div id="cn-details">
     <h3 id="cn-heading"><?php echo $row['name'];?></h3>
@@ -125,8 +105,8 @@ if(!isset($_SESSION['user_id']) && !isset($_SESSION['user_email']) ){
 <?php 
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
 ?>
-<div id="contact-img" style="display: none" >
-  <button id="close" onclick="hidecontactform()"><img src="photo/Group 26.png" alt="cross"></button>
+<div class="contact-img" style="display: none" data-id="<?php echo $row['c_id']?>" >
+  <button id="close" onclick="hidecontactform(<?php echo $row['c_id']?>)"><img src="photo/Group 26.png" alt="cross"></button>
   <img src="<?php echo $row['photo']?>" alt="cn-img" id="cn-img">
   <div id="cn-details">
     <h3 id="cn-heading"><?php echo $row['name'];?></h3>
@@ -178,47 +158,18 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
   </div>
 </div>
 </div>
-<?php }?>
-<?php
-$status = $row['status'];
-if($status =='approved'){
-echo'<div id="contact-center-placement">
-    <div id="contact-cards">
-    <img src="'.$row['photo'] .'" alt="agency-photo" id="contact-photo">
-    <img src="photo/Group 25.png" id="top-rated">
-    <p id="contact-name">'.$row['name'].'</p>
-    <p id="contact-location">'.$row['location'].'</p>
-    <div id="gtcn-rating">
-    <div id="get-contact">
-    <a class ="get-contact-form" onclick= " showcontactform()"><button>Get Contact</button></a>
-    </div>
-    <div id="ratings">
-      <img src="photo/Star.png" alt="rating">
-      <p>5</p>
-    </div>
-    </div>
-  </div>';
-}else{
-  echo'<h2 id="ag-heading" style="padding-left: 45%;font-size: 25px;">No Data Found</h2>';
-}
-?>
-  <?php
-  }
-
-}
-else{
-
-}
-
-?>
+<?php }}}?>
 </div>
 <script>
-function showcontactform(){
-  var f =document.getElementById("contact-img");
+
+function showcontactform(id){
+  console.log(id);
+  var f= document.querySelectorAll(`.contact-img[data-id="${id}"]`)[0];
+  // var f =document.getElementById("contact-img");
   f.style.display='block';
 }
-function hidecontactform(){
-  var f =document.getElementById("contact-img");
+function hidecontactform(id){
+  var f= document.querySelectorAll(`.contact-img[data-id="${id}"]`)[0];
   f.style.display='none';
   
 }

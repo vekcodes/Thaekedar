@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
     exit;
   }
   $user = mysqli_fetch_assoc($result);
-  if($password === $user['password']){
+  if(password_verify($password,$user['password'])){
     session_start();
     $_SESSION['user_id']= $user['user_id'];
     $_SESSION['user_email']= $user['email'];

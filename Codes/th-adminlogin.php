@@ -25,7 +25,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     //email not matched error 
     if(isset($_GET['error'])){
       echo"<div id='messbx'>
-      <p id='thdai'>Thaekedar Dai says: </p>
+      <p id='thdai'>Thaekedar says: </p>
       <p id='mess'>". $_GET['error']. " </p>
       </div>";
     }
@@ -78,5 +78,15 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     <div id="ft-copyright">Copyright © 2024 Thaekedar. All rights reserved.</div>
 </div>
 </body>
+<script>
+   //function to remove get error from link after reload
+   function removeQueryParams() {
+    var urlWithoutParams = window.location.origin + window.location.pathname;
+    window.history.replaceState({}, document.title, urlWithoutParams);
+}
+document.addEventListener('DOMContentLoaded', function() {
+    removeQueryParams();
+});
+</script>
 </html>
 <?php }?>

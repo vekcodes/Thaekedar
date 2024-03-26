@@ -27,7 +27,13 @@ move_uploaded_file($_FILES['docx']['tmp_name'],$dst_docx);
 
 $sql = "insert into contacts(designation,name,location,phoneno,email,description,iglink,fblink,weblink,photo,document)values('$designation','$cname','$location','$phoneno','$email','$description','$iglink','$fblink','$weblink','$dst','$dst_docx')";
 
+$em = mysqli_query($conn, "select * from contacts where email = '$email'" );
+if(mysqli_num_rows($em) > 0){
+	header('Location: contactregister.php?message=Cannot add same email');
+	exit;
+}
 $result = mysqli_query($conn,$sql);
+
 
 if($result){
 	header("Location: contactregister.php?message=Successfully Submitted");

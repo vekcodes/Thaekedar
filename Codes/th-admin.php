@@ -1,3 +1,8 @@
+<?php
+include 'db_connect.php';
+session_start();
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,3 +29,6 @@
     </div>
 </body>
 </html>
+<?php }else{
+ header("Location: th-adminlogin.php"); 
+}?>

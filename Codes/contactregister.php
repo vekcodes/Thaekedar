@@ -1,18 +1,18 @@
 <?php
-include('db_connect.php');
+include 'db_connect.php';
 session_start();
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
-    //fetching name data from users
-    $user_id = $_SESSION['user_id'];
-    $namesql = "SELECT name FROM users WHERE user_id = ?";
-    $stmt = $conn->prepare($namesql);
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-      $row = $result->fetch_assoc();
-      $name = $row['name'];
-    }
+  //fetching name data from users
+  $user_id = $_SESSION['user_id'];
+  $namesql = "SELECT name FROM users WHERE user_id = ?";
+  $stmt = $conn->prepare($namesql);
+  $stmt->bind_param("i", $user_id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $name = $row['name'];
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +28,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="th-nav">
+<div class="th-nav">
     <b class="thaekedar">THAEKEDAR</b>
     <img src="photo/thaekedarlogo.png" alt="logo" id="img-logo">
     <div class="nav-link-div">
@@ -45,16 +45,24 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
           </div>
         </div>
         <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
-        <div class="dropdown">
-          <div class="signup-wrapper">
-            <div class="nav-link" id="signUpTxt">Profile</div>
-          </div>
-          <div class="dropdown-content">
-            <a href="contactregister.php">Add Contact</a>
+        <?php
+					if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
+
+						<div class="dropdown">
+						<div class="signup-wrapper">
+        		<div class="nav-link" id="signUpTxt">Profile</div>
+      			</div>
+						<div class="dropdown-content">
+						<a href="contactregister.php">Add Contact</a>
 						<a href="notification.php">Notification</a>
-            <a href="logout.php">logout</a>
-          </div>
-        </div>
+						<a href="logout.php">logout</a>
+						</div>
+						</div>
+					<?php } else{ ?>
+      	    <a href="signup.php" id="lgin"><div class="signup-wrapper">
+        			<div class="nav-link" id="signUpTxt">SignUp</div>
+      			  </div>
+					</a><?php } ?>
     </div>
 </div>
 <?php
@@ -84,7 +92,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   <div id="first-contact">
   <div class="form-fields">
   <label>Name</label> <br>
-  <input type="text" placeholder="Enter Name" name="name" value="<?php echo $name; ?>" disabled id="entername"><br>
+  <input type="text" placeholder="Enter Name" name="name" value="<?php echo $name; ?>" readonly id="entername"><br>
   </div>
   <div class="form-fields">
   <label>Location</label><br>
@@ -205,9 +213,9 @@ const entername = document.getElementById('entername');
 const selection = document.getElementById("selection");
 selection.addEventListener('change', function() {
   if (selection.value === 'Agency' || selection.value == 'Supplier') {
-    entername.disabled = false;
+    entername.readOnly = false;
   } else {
-    entername.disabled = true;
+    entername.readOnly = true;
   }
 });
 
@@ -221,6 +229,7 @@ window.onload = function() {
       messageElement.style.display = "none";  // Hide it
     }
   };
+  
   function removeQueryParams() {
     var urlWithoutParams = window.location.origin + window.location.pathname;
     window.history.replaceState({}, document.title, urlWithoutParams);

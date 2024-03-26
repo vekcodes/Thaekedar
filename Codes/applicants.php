@@ -1,3 +1,6 @@
+<?php
+include 'db_connect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +28,16 @@
 <h2>Applicants Contact</h2>
 <div id="application-placement">
 <?php
-  for($i=0;$i<=10;$i++){
+$sql="select * from contacts";
+$sql_run = mysqli_query($conn,$sql);
+
+while($row = mysqli_fetch_array($sql_run)){
     echo'<div id="applicants-box">
-      <p id="applicantheading">Triyani Construction - Agency</p>
-      <a href="approvedecline.php"><button id="view-application">View Application</button></a>
+      <p id="applicantheading">'. $row['name'].' -'.$row['designation'].'</p>
+      <form action="approvedecline.php" method=post>
+      <input type="hidden" name="contact_id" value="' .$row['c_id'].'">
+        <a href="approvedecline.php"><button id="view-application">View Application</button></a>
+      </form>
       </div>';
   }
 ?>
