@@ -73,10 +73,21 @@ $row = mysqli_fetch_assoc($result);
   </div>
 </div>
 <div id="appdec-btn">
-  <button id="approve-btn">Approve</button>
-  <button id="decline-btn">Decline</button>
+  <form action="approvedeclinerequest.php" method="post">
+  <input type="hidden" name="contact_id" value="<?php echo $contact_id; ?>">
+  <button id="approve-btn" onclick="approve()" name="approve">Approve</button>
+  <button id="decline-btn" onclick="decline()" name="decline">Decline</button>
+  </form>
 </div>
 <span style="margin: 100px;"></span>
 </div>
+<script>
+  function approve(){
+    confirm("Do you want to approve?");
+  }
+  function decline(){
+    confirm("Do you want to decline?");
+  }
+</script>
 </body>
 </html>

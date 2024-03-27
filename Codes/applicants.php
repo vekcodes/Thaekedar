@@ -28,10 +28,10 @@ include 'db_connect.php';
 <h2>Applicants Contact</h2>
 <div id="application-placement">
 <?php
-$sql="select * from contacts";
-$sql_run = mysqli_query($conn,$sql);
+$approve = "select * from contacts where status='inprocess' OR 'decline'";
+$check_approve = mysqli_query($conn,$approve);
 
-while($row = mysqli_fetch_array($sql_run)){
+while($row = mysqli_fetch_array($check_approve)){
     echo'<div id="applicants-box">
       <p id="applicantheading">'. $row['name'].' -'.$row['designation'].'</p>
       <form action="approvedecline.php" method=post>
