@@ -1,3 +1,10 @@
+<?php
+include 'db_connect.php';
+//data retrieve for contacts table
+$sql="select * from contacts where designation = 'Supplier'";
+$sql_run = mysqli_query($conn,$sql);
+$check_supplier = mysqli_num_rows($sql_run)>0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,39 +16,72 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
-  <title>Thaekedar-Agencies</title>
+  <title>Thaekedar-Suppliers</title>
 </head>
 <body>
 <?php
 require('navbar.php'); ?>
+
+<?php
+    //message after rating and comment
+    if(isset($_GET['message'])){
+      echo"<div id='messbx'>
+      <p id='thdai'>Thaekedar says: </p>
+      <p id='mess'>". $_GET['message']. " </p>
+      </div>";
+    }
+  ?>
 <h2 id="ag-heading">Find Suppliers That <br>suits you</h2>
 <div id="ag-highlight"></div>
+
 <form action="" id="search-form">
   <input type="text" id="search-input" placeholder="Search here">
   <button id="search-button"><img src="photo/Search.png" alt="search"></button>
 </form>
 </div>
+<?php
+
+echo'<div id="contact-center-placement">';
+if($check_supplier){
+while($row = mysqli_fetch_array($sql_run)){
+  if($row['status']=='approved'){
+    echo '<div id="contact-cards">
+    <img src="'.$row['photo'] .'" alt="agency-photo" id="contact-photo">
+    <img src="photo/Group 25.png" id="top-rated">
+    <p id="contact-name">'.$row['name'].'</p>
+    <p id="contact-location">'.$row['location'].'</p>
+    <div id="gtcn-rating">
+    <div id="get-contact">
+    <a class ="get-contact-form" onclick= " showcontactform('.$row['c_id'].')"><button>Get Contact</button></a>
+    </div>
+    <div id="ratings">
+      <img src="photo/Star.png" alt="rating">
+      <p>5</p>
+    </div>
+    </div>
+  </div>';
+  }?>
 <?php 
 if(!isset($_SESSION['user_id']) && !isset($_SESSION['user_email']) ){
 ?>
-<div id="contact-img" style="display:none">
-  <button id="close" onclick="hidecontactform()"><img src="photo/Group 26.png" alt="cross"></button>
-  <img src="photo/ag2.jpg" alt="cn-img" id="cn-img">
+<div class="contact-img" style="display:none" data-id="<?php echo $row['c_id']?>">
+  <button id="close" onclick="hidecontactform(<?php echo $row['c_id']?>)"><img src="photo/Group 26.png" alt="cross"></button>
+  <img src="<?php echo $row['photo']?>" alt="cn-img" id="cn-img">
   <div id="cn-details">
-    <h3 id="cn-heading">Triyani Construction Pvt ltd</h3>
+    <h3 id="cn-heading"><?php echo $row['name'];?></h3>
     <div id="cn-location">
       <img src="photo/Location.png" alt="location" id="location-img">
-      <p id="location">Balaju, Banasthali</p>
+      <p id="location"><?php echo $row['location'];?></p>
     </div>
-    <p id="desc">Established in 2021, Triyani Construction boasts [Number] years of crafting exceptional projects across diverse sectors. From dream homes to intricate infrastructure, our team of seasoned professionals leverages their expertise to deliver quality you can trust.</p>
+    <p id="desc"><?php echo $row['description'];?></p>
     <div id="cn-email-phone">
-      <p><span id="bold">Email: </span>info@triyani.com.np</p>
-      <p><span id="bold">Phone no: </span>9862468975</p>
+      <p><span id="bold">Email: </span><?php echo $row['email'];?></p>
+      <p><span id="bold">Phone no: </span><?php echo $row['phoneno'];?></p>
     </div>
     <div id="btns">
-      <a href=""><button class="cn-btn">Instagram</button></a>
-      <a href=""><button class="cn-btn">Facebook</button></a>
-      <a href=""><button class="cn-btn">Website</button></a>
+      <a href="<?php echo $row['iglink'];?>"><button class="cn-btn">Instagram</button></a>
+      <a href="<?php echo $row['fblink'];?>"><button class="cn-btn">Facebook</button></a>
+      <a href="<?php echo $row['weblink'];?>"><button class="cn-btn">Website</button></a>
     </div>
   </div>
   <div id="ratingnviewdisplay">
@@ -66,30 +106,32 @@ if(!isset($_SESSION['user_id']) && !isset($_SESSION['user_email']) ){
 <?php 
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
 ?>
-<div id="contact-img" style="display: none" >
-  <button id="close" onclick="hidecontactform()"><img src="photo/Group 26.png" alt="cross"></button>
-  <img src="photo/ag2.jpg" alt="cn-img" id="cn-img">
+<div class="contact-img" style="display: none" data-id="<?php echo $row['c_id']?>" >
+  <button id="close" onclick="hidecontactform(<?php echo $row['c_id']?>)"><img src="photo/Group 26.png" alt="cross"></button>
+  <img src="<?php echo $row['photo']?>" alt="cn-img" id="cn-img">
   <div id="cn-details">
-    <h3 id="cn-heading">Triyani Construction Pvt ltd</h3>
+    <h3 id="cn-heading"><?php echo $row['name'];?></h3>
     <div id="cn-location">
       <img src="photo/Location.png" alt="location" id="location-img">
-      <p id="location">Balaju, Banasthali</p>
+      <p id="location"><?php echo $row['location'];?></p>
     </div>
-    <p id="desc">Established in 2021, Triyani Construction boasts [Number] years of crafting exceptional projects across diverse sectors. From dream homes to intricate infrastructure, our team of seasoned professionals leverages their expertise to deliver quality you can trust.</p>
+    <p id="desc"><?php echo $row['description'];?></p>
     <div id="cn-email-phone">
-      <p><span id="bold">Email: </span>info@triyani.com.np</p>
-      <p><span id="bold">Phone no: </span>9862468975</p>
+      <p><span id="bold">Email: </span><?php echo $row['email'];?></p>
+      <p><span id="bold">Phone no: </span><?php echo $row['phoneno'];?></p>
     </div>
     <div id="btns">
-      <a href=""><button class="cn-btn">Instagram</button></a>
-      <a href=""><button class="cn-btn">Facebook</button></a>
-      <a href=""><button class="cn-btn">Website</button></a>
+      <a href="<?php echo $row['iglink'];?>"><button class="cn-btn">Instagram</button></a>
+      <a href="<?php echo $row['fblink'];?>"><button class="cn-btn">Facebook</button></a>
+      <a href="<?php echo $row['weblink'];?>"><button class="cn-btn">Website</button></a>
     </div>
   </div>
-  <form action="cnmtnrating">
+  <form action="cnmtnrating.php" method="post">
+    <input type="hidden" name="c_id" value="<?php echo $row['c_id']?>">
   <div id="ratingdisp">
     <p>RATE :</p>
-    <select id="rate">
+    <select id="rate" required name="rate">
+      <option value="">Rate</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -101,8 +143,8 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
     </div>
     <div id="comment">
       <p>Comment :</p>
-        <input type="text" id="comment-input">
-        <input type="submit" id="comment-submit">
+        <input type="text" id="comment-input" name="comment" required>
+        <input type="submit" id="comment-submit" name="ratingncmntsubmit">
         <!-- <button id="comment-submit"><img src="photo/Email Send.png" alt=""></button> -->
       </form>
     </div>
@@ -117,35 +159,18 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
   </div>
 </div>
 </div>
-<?php }?>
-<div id="contact-center-placement">
-<?php
-for($i=0;$i<=10;$i++){
-  echo '<div id="contact-cards">
-  <img src="photo/ag2.jpg" alt="agency-photo" id="contact-photo">
-  <img src="photo/Group 25.png" id="top-rated">
-  <p id="contact-name">Triyani Construction</p>
-  <p id="contact-location">Balaju, Banasthali</p>
-  <div id="gtcn-rating">
-  <div id="get-contact">
-  <a class ="get-contact-form" onclick= " showcontactform()"><button>Get Contact</button></a>
-  </div>
-  <div id="ratings">
-    <img src="photo/Star.png" alt="rating">
-    <p>5</p>
-  </div>
-  </div>
-</div>';
-}
-?>
+<?php }}}?>
 </div>
 <script>
-function showcontactform(){
-  var f =document.getElementById("contact-img");
+
+function showcontactform(id){
+  console.log(id);
+  var f= document.querySelectorAll(`.contact-img[data-id="${id}"]`)[0];
+  // var f =document.getElementById("contact-img");
   f.style.display='block';
 }
-function hidecontactform(){
-  var f =document.getElementById("contact-img");
+function hidecontactform(id){
+  var f= document.querySelectorAll(`.contact-img[data-id="${id}"]`)[0];
   f.style.display='none';
   
 }

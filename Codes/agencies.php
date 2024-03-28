@@ -44,6 +44,7 @@ require('navbar.php'); ?>
 echo'<div id="contact-center-placement">';
 if($check_agency){
 while($row = mysqli_fetch_array($sql_run)){
+  if($row['status']=='approved'){
     echo '<div id="contact-cards">
     <img src="'.$row['photo'] .'" alt="agency-photo" id="contact-photo">
     <img src="photo/Group 25.png" id="top-rated">
@@ -59,7 +60,7 @@ while($row = mysqli_fetch_array($sql_run)){
     </div>
     </div>
   </div>';
-?>
+  }?>
 <?php 
 if(!isset($_SESSION['user_id']) && !isset($_SESSION['user_email']) ){
 ?>
