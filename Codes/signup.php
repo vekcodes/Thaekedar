@@ -78,7 +78,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   </button>
 </form>
 </div>
-<p id="or">or</p>
+<!-- <p id="or">or</p> -->
 <img src="photo/th1.png" alt="heroimg" id="heroimg">
 <!-- footer -->
 <div id="thfooter">
