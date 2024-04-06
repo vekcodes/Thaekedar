@@ -1,26 +1,20 @@
 <?php
-include 'db_connect.php';
+include ('../utils/db_connect.php');
 //data retrieve for contacts table
-$sql="select * from contacts where designation = 'Agency'";
+$sql="select * from contacts where designation = 'Engineer'";
 $sql_run = mysqli_query($conn,$sql);
-$check_agency = mysqli_num_rows($sql_run)>0;
+$check_engineer = mysqli_num_rows($sql_run)>0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet"  href="index.css" />
-  <link rel="stylesheet" href="view.css">
-  <link rel="stylesheet" href="global-contact.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
-  <title>Thaekedar-Agencies</title>
+  <?php include '../header.php';?>
+  <title>Thaekedar-Engineer</title>
 </head>
 <body>
 <?php
-require('navbar.php'); ?>
+require('../navbar.php'); ?>
 
 <?php
     //message after rating and comment
@@ -31,23 +25,23 @@ require('navbar.php'); ?>
       </div>";
     }
   ?>
-<h2 id="ag-heading">Find Agency That <br>suits you</h2>
+<h2 id="ag-heading">Find Engineer That <br>suits you</h2>
 <div id="ag-highlight"></div>
 
 <form action="" id="search-form">
   <input type="text" id="search-input" placeholder="Search here">
-  <button id="search-button"><img src="photo/Search.png" alt="search"></button>
+  <button id="search-button"><img src="../photo/Search.png" alt="search"></button>
 </form>
 </div>
 <?php
 
 echo'<div id="contact-center-placement">';
-if($check_agency){
+if($check_engineer ){
 while($row = mysqli_fetch_array($sql_run)){
   if($row['status']=='approved'){
     echo '<div id="contact-cards">
-    <img src="'.$row['photo'] .'" alt="agency-photo" id="contact-photo">
-    <img src="photo/Group 25.png" id="top-rated">
+    <img src="../'.$row['photo'] .'" alt="agency-photo" id="contact-photo">
+    <img src="../photo/Group 25.png" id="top-rated">
     <p id="contact-name">'.$row['name'].'</p>
     <p id="contact-location">'.$row['location'].'</p>
     <div id="gtcn-rating">
@@ -55,7 +49,7 @@ while($row = mysqli_fetch_array($sql_run)){
     <a class ="get-contact-form" onclick= " showcontactform('.$row['c_id'].')"><button>Get Contact</button></a>
     </div>
     <div id="ratings">
-      <img src="photo/Star.png" alt="rating">
+      <img src="../photo/Star.png" alt="rating">
       <p>5</p>
     </div>
     </div>

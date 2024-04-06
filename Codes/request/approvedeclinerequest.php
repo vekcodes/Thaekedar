@@ -1,5 +1,5 @@
 <?php
-include 'db_connect.php';
+include ('../utils/db_connect.php');
 $contact_id = $_POST['contact_id'];
 //if admin approves it
 if(isset($_POST['approve'])){
@@ -9,7 +9,7 @@ if(isset($_POST['approve'])){
   //executing the statement
   if ($stmt->execute()) {
     if ($stmt->affected_rows === 1) {
-      header('Location: th-admin.php?message=approved successfully');
+      header('Location: ../th-admin.php?message=approved successfully');
     }
 }
 }
@@ -21,7 +21,7 @@ if(isset($_POST['decline'])){
   //executing the statement
   if ($stmt->execute()) {
     if ($stmt->affected_rows === 1) {
-      header('Location: th-admin.php?message=declined successfully');
+      header('Location: ../th-admin.php?message=declined successfully');
     }
 }
 }

@@ -1,7 +1,14 @@
 <?php
+include ('./utils/db_connect.php');
 session_start();
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
-    header("Location: index.php");
+  $user_id = $_SESSION['user_id'];
+  $sql = "select user_type from users where user_id = '$user_id'";
+  $result = mysqli_query($conn,$sql);
+  $user_type = mysqli_fetch_assoc($result);
+  if($user_type['user_type']=='admin'){  
+  header("Location: th-admin.php");
+  }
     exit();
 }else{
 
@@ -10,11 +17,8 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php include 'header.php';?>
   <title>Thaekedar-login</title>
-  <link rel="stylesheet" href="login.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap');
 		</style>
@@ -31,7 +35,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     }
   ?>
 <div id="signup-bx">
-<form action="adminloginRequest.php" method="post">
+<form action="/Codes/request/adminloginRequest.php" method="post">
   <div class="form-fields">
   <label>Email</label><br>
   <input type="email" placeholder="Enter Email" name="email" required><br>

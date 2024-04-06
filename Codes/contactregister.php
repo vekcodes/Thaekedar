@@ -1,5 +1,5 @@
 <?php
-include 'db_connect.php';
+include ('./utils/db_connect.php');
 session_start();
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   //fetching name data from users
@@ -20,12 +20,11 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 <script src="script.js">
 </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thaekedar- Contact Register</title>
-  <link rel="stylesheet" href="contactregister.css">
+  <link rel="stylesheet" href="css/contactregister.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <title>Thaekedar- Contact Register</title>
 </head>
 <body>
 <div class="th-nav">
@@ -53,9 +52,9 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
         		<div class="nav-link" id="signUpTxt">Profile</div>
       			</div>
 						<div class="dropdown-content">
-						<a href="contactregister.php">Add Contact</a>
-						<a href="notification.php">Notification</a>
-						<a href="logout.php">logout</a>
+						<a href="user_dashboard.php">My DashBoard</a>
+						<!-- <a href="notification.php">Notification</a> -->
+						<a href="./request/logout.php">logout</a>
 						</div>
 						</div>
 					<?php } else{ ?>
@@ -107,10 +106,10 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 <label>Description</label> <p style="margin: 0; display:inline; font-family: 'reem kufi'; font-size: 13px;">(Max length: 253 words)</p><br>
 <textarea type="text" placeholder="Enter small description about your agency/service and experience" class="desc" name="description" required maxlength="253"></textarea>
 </div>
-<div id="cn-heading">
+<!-- <div id="cn-heading">
   <p id="form-cn-det">Contact Details</p>
   <div id="cd-highlight"></div>
-</div>
+</div> -->
 <div id="contact-detail">
   <div class="form-fields">
   <label>Email</label> <br>
@@ -147,12 +146,12 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     <p id="drag-formats">Supported formats: png,jpeg,jpg</p> 
 </div>
 
+<!-- document / license -->
 <div id="docx-heading">
   <p id="form-docx">Document/license</p>
   <div id="docx-highlight"></div>
 </div>
 
-<!-- document / license -->
 <div id="docx-drag-area"onclick="inputclick1()">
     <img src="photo/Upload to Cloud.png" alt="drop" id="drag-img"><br>
     <p class="drag-p1">Click to upload</p>
@@ -166,37 +165,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 </div>
 <button id="ca-submit" name="ca_submit">Submit Profile for Verification</button>
 </form>
-
-<!-- footer -->
-<div id="thfooter">
-  <img src="photo/thaekedarlogo.png" alt="footerlogo" id="ft-img-logo">
-  <b class="ft-thaekedar">THAEKEDAR</b>
-  <p id="ft-p">Thaekedar is a Construction Contact <br>management system where you can find <br>contacts of agencies to suppliers</p>
-  <h3 id='ft-follow'>Follow us on:</h3>
-  <div id="ft-links">
-    <a href="https://www.facebook.com"><img src="photo/Facebook.png" alt="fblink" class="ft-link-img"></a>
-    <a href="https://www.twitter.com"><img src="photo/Twitter.png" alt="twlink"class="ft-link-img"></a>
-    <a href="https://www.instagram.com"><img src="photo/Instagram.png" alt="iglink"class="ft-link-img"></a>
-  </div>
-  <div id="ft-desc-link">
-    <h3 id="ft-bold-link">Links</h3>
-    <div id="ft-desc-li">
-      <a href=""class='ft-link-a'><p>Agencies</p></a>
-      <a href=""class='ft-link-a'><p>Interior Designer</p></a>
-      <a href=""class='ft-link-a'><p>Architect</p></a>
-      <a href=""class='ft-link-a'><p>Engineer</p></a>
-      <a href=""class='ft-link-a'><p>Suppliers</p></a>
-    </div>
-  </div>
-    <div id="ft-desc-contact">
-      <h3 id="ft-bold-contact">Contact</h3>
-      <div id="ft-desc-cn">
-        <a href=""class='ft-link-a'><p>9863456312</p></a>
-        <a href="mailto:info@thaekedar.com" class='ft-link-a'><p>info@thaekedar.com</p></a>
-      </div>
-    </div>
-    <div id="ft-copyright">Copyright © 2024 Thaekedar. All rights reserved.</div>
-</div>
+<div style="height:200px;color:aqua;"></div>
 </body>
 <script>
 const input = document.getElementById("drag-input");

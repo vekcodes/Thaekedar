@@ -5,6 +5,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
   $email = $_POST['email'];
   $password = $_POST['password'];
   $cpassword = $_POST['cpassword'];
+  $phoneno = $_POST['phoneno'];
   
   //server-side check if user left any empty field
   if(empty($name) || empty($email) || empty ($password) || empty($cpassword) ){
@@ -30,7 +31,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
   //inserting data into database users
 
   $password = password_hash($password, PASSWORD_DEFAULT);
-  $query = "insert into users(user_id,name,email,password) values('','$name','$email','$password')";
+  $query = "insert into users(user_id,name,email,password,phone_number) values('','$name','$email','$password','$phoneno')";
   $result = mysqli_query($conn, $query);
 
   //if result is true then goes to login

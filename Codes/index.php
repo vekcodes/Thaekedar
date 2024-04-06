@@ -6,9 +6,8 @@ session_start();
 <head>
   	<meta charset="utf-8">
   	<meta name="viewport" content="initial-scale=1, width=device-width">
-  	
-  	<link rel="stylesheet"  href="index.css" />
-	  <link rel="stylesheet" href="global-contact.css">
+  	<link rel="stylesheet"  href="css/index.css" />
+	  <link rel="stylesheet" href="css/global-contact.css">
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
@@ -20,18 +19,18 @@ session_start();
     		<img src="photo/thaekedarlogo.png" alt="logo" id="img-logo">
     		<div class="nav-link-div">
       			<div><a class="nav-link" href="index.php">Home</a></div>
-      			<a href="agencies.php"><div class="nav-link">Agencies </div></a>
+      			<a href="./contactpages/agencies.php"><div class="nav-link">Agencies </div></a>
 						<div class="dropdown">
 
 							<div class="nav-link" id="peoples">Peoples</div>
 
 							<div class="dropdown-content">
-								<a href="interiordesigner.php">Interior Designer</a>
-								<a href="architect.php">Architect</a>
-								<a href="engineer.php">Engineer</a>
+								<a href="./contactpages/interiordesigner.php">Interior Designer</a>
+								<a href="./contactpages/architect.php">Architect</a>
+								<a href="./contactpages/engineer.php">Engineer</a>
 							</div>
 						</div>
-      			<a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
+      			<a href="./contactpages/suppliers.php"><div class="nav-link">Suppliers</div></a>
 						<?php
 							if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
 
@@ -40,9 +39,9 @@ session_start();
         				<div class="nav-link" id="signUpTxt">Profile</div>
       					</div>
 								<div class="dropdown-content">
-								<a href="contactregister.php">Add Contact</a>
-								<a href="notification.php">Notification</a>
-								<a href="logout.php">logout</a>
+								<a href="user_dashboard.php">My DashBoard</a>
+								<!-- <a href="notification.php">Notification</a> -->
+								<a href="./request/logout.php">logout</a>
 								</div>
 								</div>
 							<?php } else{ ?>

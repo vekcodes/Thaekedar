@@ -1,18 +1,17 @@
 <?php
-include 'db_connect.php';
+include ('./utils/db_connect.php');
 session_start();
-if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
+$user_id = $_SESSION['user_id'];
+$sql = "select user_type from users where user_id = '$user_id'";
+$result = mysqli_query($conn,$sql);
+$user_type = mysqli_fetch_assoc($result);
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])&& $user_type['user_type']=='admin'){ ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="th-admin.css">
-  <link rel="stylesheet" href="contactregister.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <?php include 'header.php';?>
     <title>Thaekedar-admin</title>
 </head>
 <body>
@@ -25,18 +24,9 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
       </div>";
     }
   ?>
-    <div id="admin-sidebar">
-        <img src="photo/thaekedarlogo.png" alt="logo" id="admin-logo">
-        <h1>THAEKEDAR</h1>
-    <div id="admin-menu">
-        <div id="aprovedecline">
-            <a href="applicants.php"><p>Approve/Decline Contact</p></a>
-        </div>
-        <div id="mgmtcn">
-            <a href="managecn.php"><p>Manage contact</p></a>
-        </div>
-    </div>
-    </div>
+<?php
+include'adminsidebar.php';
+?>
 </body>
 </html>
 <?php }else{

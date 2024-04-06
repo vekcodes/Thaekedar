@@ -4,7 +4,8 @@
   font-weight: 900;
   color: #003366;
   margin-top: 65px;
-  padding-left: 18%;
+  position: absolute;
+    left: 18%;
 }
 #ag-highlight{
   background-color: #FFCC00;
@@ -54,6 +55,60 @@
   top: 290px;
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
+}
+#notification-center-placement{
+  position: absolute;
+  width: 750px;
+  left: 25%;
+  top: 120px;
+  padding: 50px;
+  border-radius: 14px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background-color: #EBEBEB;
+}
+#notify{
+  color: black;
+  background-color: #fff;
+  margin: 20px;
+  font-family: "reem kufi";
+  border-radius: 9px;
+  padding: 20px;
+}
+#notify p b{
+  font-size: 16px;
+  font-weight: 900;
+  color: #003366;
+  margin-bottom: 20px;
+}
+#notify p span{
+  font-family: 'montserrat';
+  color: #003366;
+}
+#notify-btn-accept{
+  background-color: #00FF1A;
+  border-radius: 5px;
+  color: #003366;
+  height: 25px;
+  width: 90px;
+  font-family: 'reem kufi';
+  font-size: 14px;
+}
+#notify-btn-accept:hover{
+  background-color: #5cff6c;
+}
+#notify-btn-cancel{
+  background-color: #FF4444;
+  border-radius: 5px;
+  color: #fff;
+  height: 25px;
+  width: 90px;
+  font-family: 'reem kufi';
+  font-size: 14px;
+}
+#notify-btn-cancel:hover{
+  background-color: #ff6666;
 }
 #contact-cards{
   margin: 0;

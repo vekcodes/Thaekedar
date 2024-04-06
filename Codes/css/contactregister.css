@@ -235,7 +235,7 @@ body {
   grid-template-columns: auto auto ;
   position: absolute;
   left: 23%;
-  top: 1167px;
+  top: 1050px;
 }
 #desc-grp{
   position: absolute;
@@ -285,7 +285,7 @@ body {
   position: absolute;
   top: 15px;
 }
-#cn-heading{
+#cnn-heading{
   position: absolute;
   left: 43%;
   top: 1083px;
@@ -311,7 +311,7 @@ body {
 #photo-heading{
   position: absolute;
   left: 35%;
-  top: 1396px;
+  top: 1350px;
   width: 250px;
 }
 #ph-drag-area{
@@ -321,7 +321,7 @@ body {
   border-radius: 52px;
   position: absolute;
   left: 22%;
-  top: 1461px;
+  top: 1400px;
 }
 #drag-img{
   position: absolute;
@@ -407,7 +407,7 @@ body {
 #docx-heading{
   position: absolute;
   left: 30%;
-  top: 1823px;
+  top: 1800px;
   width: 250px;
 }
 #docx-drag-area{
@@ -417,7 +417,7 @@ body {
   border-radius: 52px;
   position: absolute;
   left: 22%;
-  top: 1885px;
+  top: 1850px;
 }
 #drag-img{
   position: absolute;

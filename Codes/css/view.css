@@ -91,22 +91,47 @@
 }
 #ratingnviewdisplay{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 15px;
   font-family: 'montserrat';
   font-size: 14px;
   width: 200px;
-  margin-top: 15pxpx;
+  margin-top: 15px;
   margin-left: 35px;
+  align-items: center;
 }
 #ratingnumb{
   height: 35px;
-  width: 144px;
+  width: 160px;
   background-color: #FFCC00;
   font-family: "montserrat";
   color: #003366;
   border: none;
   border-radius: 4px;
+}
+#req{
+  height: 35px;
+  width: 260px;
+  background-color: #FFCC00;
+  font-family: "montserrat";
+  color: #003366;
+  border: none;
+  border-radius: 4px;
+}
+#req:hover{
+  background-color: #ffda47;
+
+}
+#workreq{
+  height: 35px;
+  width: 160px;
+  font-family: "montserrat";
+  margin-left: 30px;
+}
+#workreq p{
+  margin-top: 30px;
+  margin-bottom: 0px;
+  font-size: 14px;
 }
 #ratingdisplay p{
   margin-left: 25px;
@@ -114,8 +139,8 @@
 #cmnth{
   font-family: 'montserrat';
   position: absolute;
-  top: 358px;
-  left: 368px;
+  top: 350px;
+  left: 375px;
 }
 #slide-comments{
   position: absolute;
@@ -153,6 +178,7 @@
   gap: 30px;
   margin-left: 40px;
   margin-top: 15px;
+  align-items: center;
 }
 #ratingdisp p{
   margin: 0;
@@ -163,6 +189,7 @@
   height: 30px;
   color: #003366;
   background-color: #FFCC00;
+  width: 80px;
 }
 #comment{
   margin-top: 20px;

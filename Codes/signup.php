@@ -10,11 +10,9 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php include 'header.php';?>
+
   <title>Thaekedar-signup</title>
-  <link rel="stylesheet" href="signup.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem Kufi:wght@400;700&display=swap" />	
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap');
 		</style>
@@ -25,18 +23,18 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     <img src="photo/thaekedarlogo.png" alt="logo" id="img-logo">
     <div class="nav-link-div">
         <div><a class="nav-link" href="index.php">Home</a></div>
-        <a href="agencies.php"><div class="nav-link">Agencies </div></a>
+        <a href="./contactpages/agencies.php"><div class="nav-link">Agencies </div></a>
         <div class="dropdown">
 
           <div class="nav-link" id="peoples">Peoples</div>
 
           <div class="dropdown-content">
-            <a href="interiordesigner.php">Interior Designer</a>
-            <a href="architect.php">Architect</a>
-            <a href="engineer.php">Engineer</a>
+            <a href="./contactpages/interiordesigner.php">Interior Designer</a>
+            <a href="./contactpages/architect.php">Architect</a>
+            <a href="./contactpages/engineer.php">Engineer</a>
           </div>
         </div>
-        <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>
+        <a href="./contactpages/suppliers.php"><div class="nav-link">Suppliers</div></a>
         <a href="login.php" id="lgin"><div class="signup-wrapper">
             <div class="nav-link" id="signUpTxt">Login</div>
         </div>
@@ -64,6 +62,10 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   <div class="form-fields">
   <label>Email</label><br>
   <input type="email" placeholder="Enter Email" name="email" required><br>
+  </div>
+  <div class="form-fields">
+  <label>Phone number</label><br>
+  <input type="number" placeholder="Enter Phone no" name="phoneno" required><br>
   </div>
   <div class="form-fields">
   <label>Password</label><br>
