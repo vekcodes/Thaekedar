@@ -1,9 +1,13 @@
 <?php
 include ('./utils/db_connect.php');
 session_start();
-if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT user_type FROM users WHERE user_id = '$user_id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$user_type = $row['user_type'];
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) && $user_type != 'admin'){
   //fetching name data from users
-  $user_id = $_SESSION['user_id'];
   $namesql = "SELECT name FROM users WHERE user_id = ?";
   $stmt = $conn->prepare($namesql);
   $stmt->bind_param("i", $user_id);
@@ -211,6 +215,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 </html>
-<?php }else{
+<?php }
+elseif($user_type == 'admin'){
+  header("Location: th-admin.php");
+}
+else{
  header("Location: login.php"); 
 }?>

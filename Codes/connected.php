@@ -22,18 +22,12 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) && $user_type['
   ?>
 <?php
 // echo $user_id;
-$csql="SELECT c.*
-FROM contacts c
-WHERE c.c_id IN (
-  SELECT c_id
-  FROM connected
-  WHERE EXISTS (
-    SELECT 1
-    FROM users
-    WHERE user_id = c.user_id AND user_id = $user_id))";
+$csql="SELECT c.* FROM contacts c 
+JOIN connected co ON c.c_id = co.c_id 
+WHERE co.user_id = $user_id AND co.request_status = 'accepted'";
 $fetch_connected = mysqli_query($conn,$csql);
 //fetch accepted from connected
-$asql = "select request_status from connected where user_id = $user_id";
+$asql = "select request_status from connected where user_id = ".$user_id;
 $check_request= mysqli_query($conn,$asql);
 ?>
 <h2 id="th-admin-head">Contacts</h2>
@@ -41,24 +35,20 @@ $check_request= mysqli_query($conn,$asql);
 echo '<div id="contact-center-placement" style="width: 70%; left: 21%;top: 80px;">';
 if($fetch_connected){
 while($row = mysqli_fetch_array($fetch_connected)){
-  $c_row = mysqli_fetch_array($check_request);
-  if($c_row && $c_row['request_status']=='accepted'){
+  // $c_row = mysqli_fetch_array($check_request);
+  // if($c_row['request_status']=='accepted'){
     echo '<div id="contact-cards">
     <img src="./'.$row['photo'] .'" alt="agency-photo" id="contact-photo">
-    <img src="./photo/Group 25.png" id="top-rated">
     <p id="contact-name">'.$row['name'].'</p>
     <p id="contact-location">'.$row['location'].'</p>
-    <div id="gtcn-rating">
     <div id="get-contact">
-    <a class ="get-contact-form" href="feedback.php"><button>Feedback</button></a>
-    </div>
-    <div id="ratings">
-      <img src="./photo/Star.png" alt="rating">
-      <p>5</p>
-    </div>
+    <form action="feedback.php" method="post">
+    <input type="hidden" name="c_id" value="'.$row['c_id'].'">
+    <a class ="get-contact-form"><button>Feedback</button></a>
+    </form>
     </div>
   </div>';
-  }}}?>
+  }}?>
 
 <!-- Clients -->
 <?php

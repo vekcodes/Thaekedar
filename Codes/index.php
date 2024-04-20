@@ -14,6 +14,33 @@ session_start();
 		<title>Thaekedar-Home</title>
 </head>
 <body>
+<?php
+    //message after rating and comment
+    if(isset($_GET['message'])){
+      echo"<div id='messbx'>
+      <p id='thdai'>Thaekedar says: </p>
+      <p id='mess'>". $_GET['message']. " </p>
+      </div>";
+    }
+  ?>
+<style>
+	#messbx{
+		position:absolute;
+		top: 130px;
+   	left: 70%;
+  	font-family: 'montserrat';
+  	color: #003366;
+  	height: 50px;
+  	width: 300px;
+  	padding: 30px;
+  	border-radius: 9px;
+  	box-shadow: 3px 4px 11.4px rgba(0, 0, 0, 0.25);
+}
+#mess{
+  color: rgb(255, 32, 32);
+  font-family: 'reem kufi';
+}
+	</style>
   	<div class="th-nav">
     		<b class="thaekedar">THAEKEDAR</b>
     		<img src="photo/thaekedarlogo.png" alt="logo" id="img-logo">
@@ -55,9 +82,9 @@ session_start();
 		<p id="herop">Your every needs of resources while building a <br>house or be it outsourcing</p>
 		<img src="photo/th1.png" alt="heroimg" id="heroimg">
 		<div id="herobut-wrap">
-			<a href="agencies.php"><button class="herobutton">Agencies</button></a>
-			<a href="architect.php"><button class="herobutton">Architect</button></a>
-			<a href="suppliers.php"><button class="herobutton">Suppliers</button></a>
+			<a href="./contactpages/agencies.php"><button class="herobutton">Agencies</button></a>
+			<a href="./contactpages/architect.php"><button class="herobutton">Architect</button></a>
+			<a href="./contactpages/suppliers.php"><button class="herobutton">Suppliers</button></a>
 		</div>
 		<div id="scroller-bg">
 			<h3 id="sc-h3">Find your Construction needs  </h3>
@@ -127,3 +154,8 @@ session_start();
 		</div>
 </body>
 </html>
+<script>
+  setTimeout(function(){
+    document.getElementById('messbx').style.display = 'none';
+  }, 5000);
+</script>

@@ -10,7 +10,7 @@ $check_agency = mysqli_num_rows($sql_run)>0;
 <head>
   <meta charset="UTF-8">
   <?php include '../header.php';?>
-  <title>Thaekedar-Agencies</title>
+  <title>Thaekedar-Interior Designer</title>
 </head>
 <body>
 <?php
@@ -78,20 +78,32 @@ if(!isset($_SESSION['user_id']) && !isset($_SESSION['user_email']) ){
       <a href="<?php echo $row['weblink'];?>"><button class="cn-btn">Website</button></a>
     </div>
   </div>
+  <?php 
+  $ratingsql = 'SELECT AVG(rating) as average_rating FROM rating_comment WHERE c_id = '.$row['c_id'];
+  $ratingresult = mysqli_query($conn, $ratingsql);
+  $ratingrow = mysqli_fetch_array($ratingresult);
+  $average_rating = round($ratingrow['average_rating'], 1);
+  ?>
   <div id="ratingnviewdisplay" style="margin-top: 50px;">
     <p style="margin: 0;">RATINGS:</p>
-    <button id="ratingnumb">5 STAR</button>
+    <button id="ratingnumb"><?php echo $average_rating; ?> STAR</button>
     <p style="margin: 0;">Views:</p>
     <button id="ratingnumb">545</button>
   </div>
 <div id="cmnt">
-  <p id="cmnth">Comments :</p>
-  <div id="cmnt-slide">
-    <button class="cmnt-slide"><img src="../photo/Group 27.png"></button>
-    <button class="cmnt-slide"><img src="../photo/Group 28.png"></button>
-  </div>
+  <p id="cmnth">Comments :</p><form action="../works.php"><button class="cn-btn" style="position: absolute;left: 500px;top: 360px;">Show works</button> <input type="hidden" value="<?php echo $row['c_id']?>" name='c_id'></form>
   <div id="slide-comments">
-    <p>The Quality of their work is exceptional, I had only worked twice with them still so much fullfiling </p>
+  <?php 
+  $cnmtsql= 'select comment from rating_comment where c_id = '.$row['c_id'];
+  $cnmtresult= mysqli_query($conn,$cnmtsql);
+
+  if(mysqli_num_rows($cnmtresult)>0){ 
+    $cnmtrow = mysqli_fetch_array($cnmtresult); ?>
+    <p><?php echo $cnmtrow['comment']; ?></p>
+  <?php }
+  else{
+    echo '<p>No comments yet</p>';
+  } ?>
   </div>
 </div>
 </div>
@@ -120,9 +132,15 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
       <a href="<?php echo $row['weblink'];?>"><button class="cn-btn">Website</button></a>
     </div>
   </div>
+  <?php 
+  $ratingsql = 'SELECT AVG(rating) as average_rating FROM rating_comment WHERE c_id = '.$row['c_id'];
+  $ratingresult = mysqli_query($conn, $ratingsql);
+  $ratingrow = mysqli_fetch_array($ratingresult);
+  $average_rating = round($ratingrow['average_rating'], 1);
+  ?>
   <div id="ratingnviewdisplay">
     <p style="margin: 0;">RATINGS:</p>
-    <button id="ratingnumb">5 STAR</button>
+    <button id="ratingnumb"><?php echo $average_rating; ?> STAR</button>
     <p style="margin: 0;">Views:</p>
     <button id="ratingnumb">545</button>
   </div>
@@ -130,7 +148,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
     <input type="hidden" value="<?php echo $row['c_id']?>" name='c_id'>
     <p>Send Work Request:</p>
     <?php 
-    $srsql= 'select * from connected where user_id = '.$_SESSION['user_id'];
+    $srsql= 'select * from connected where user_id = '.$_SESSION['user_id'].' and c_id = '.$row['c_id'];
     $sresult= mysqli_query($conn,$srsql);
     if(mysqli_num_rows($sresult) === 0){
     ?>
@@ -142,13 +160,19 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
 
   </form>
 <div id="cmnt">
-  <p id="cmnth">Comments :</p>
-  <div id="cmnt-slide">
-    <button class="cmnt-slide"><img src="../photo/Group 27.png"></button>
-    <button class="cmnt-slide"><img src="../photo/Group 28.png"></button>
-  </div>
+  <p id="cmnth">Comments :</p><form action="../works.php"><button class="cn-btn" style="position: absolute;left: 500px;top: 360px;">Show works</button> <input type="hidden" value="<?php echo $row['c_id']?>" name='c_id'></form>
   <div id="slide-comments">
-    <p>The Quality of their work is exceptional, I had only worked twice with them still so much fullfiling </p>
+  <?php 
+  $cnmtsql= 'select comment from rating_comment where c_id = '.$row['c_id'];
+  $cnmtresult= mysqli_query($conn,$cnmtsql);
+
+  if(mysqli_num_rows($cnmtresult)>0){ 
+    $cnmtrow = mysqli_fetch_array($cnmtresult); ?>
+    <p><?php echo $cnmtrow['comment']; ?></p>
+  <?php }
+  else{
+    echo '<p>No comments yet</p>';
+  } ?>
   </div>
 </div>
 </div>
