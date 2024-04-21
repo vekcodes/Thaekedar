@@ -27,6 +27,29 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])&& $user_type['u
 <?php
 include'adminsidebar.php';
 ?>
+<h2 id='th-admin-head'>Admin DashBoard</h2>
+<div id="report-placement">
+<div id="report-block">
+  <img src="photo/point-of-view.png" alt="">
+    <label id="report-heading">Most Viewed Contact: </label>
+    <p id="report-data">Triyani Construction</p>
+</div>
+<div id="report-block">
+  <img src="photo/wrench.png" alt="">
+    <label id="report-heading">Most Worked Contact: </label>
+    <p id="report-data">Triyani Construction</p>
+</div>
+<div id="report-block">
+  <img src="photo/star-rated.png" alt="">
+    <label id="report-heading">Top Rated Contact: </label>
+    <p id="report-data">Triyani Construction</p>
+</div>
+<div id="report-block">
+  <img src="photo/profile-user.png" alt="">
+    <label id="report-heading">Total Users Registered: </label>
+    <p id="report-data">40</p>
+</div>
+</div>
 </body>
 </html>
 <?php }else{

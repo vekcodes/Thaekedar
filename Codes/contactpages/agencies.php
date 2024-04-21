@@ -36,7 +36,7 @@ require('../navbar.php'); ?>
 <?php
 if(isset($_GET['search'])){
 $searchTerm = $_GET['search'];
-$searchsql = "SELECT * FROM contacts WHERE location LIKE '%$searchTerm%' OR name LIKE '%$searchTerm%' and designation = 'Agency'";
+$searchsql = "SELECT * FROM contacts WHERE designation = 'Agency' and location LIKE '%$searchTerm%' OR name LIKE '%$searchTerm%'";
 $searchresult = mysqli_query($conn, $searchsql);
 }
 echo'<div id="contact-center-placement">';

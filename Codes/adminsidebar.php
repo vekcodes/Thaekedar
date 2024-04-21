@@ -6,6 +6,9 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
         <img src="photo/thaekedarlogo.png" alt="logo" id="admin-logo">
         <h1>THAEKEDAR</h1>
     <div id="admin-menu">
+    <div id="aprovedecline">
+            <a href="th-admin.php"><p>Dashboard</p></a>
+        </div>
         <div id="aprovedecline">
             <a href="applicants.php"><p>Approve/Decline Contact</p></a>
         </div>
