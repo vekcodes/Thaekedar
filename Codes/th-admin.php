@@ -26,6 +26,37 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])&& $user_type['u
   ?>
 <?php
 include'adminsidebar.php';
+//most worked contact
+$sql = "SELECT contacts.name, COUNT(connected.c_id) as count
+        FROM connected
+        JOIN contacts ON connected.c_id = contacts.c_id
+        WHERE connected.request_status = 'accepted'
+        GROUP BY connected.c_id, contacts.name
+        ORDER BY count DESC
+        LIMIT 1";
+
+$result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $mostConnectedName = $row['name'];
+// Top rated Contact
+$trsql = "SELECT contacts.name, SUM(rating_comment.rating) as total_rating
+        FROM rating_comment
+        JOIN contacts ON rating_comment.c_id = contacts.c_id
+        GROUP BY rating_comment.c_id, contacts.name
+        ORDER BY total_rating DESC
+        LIMIT 1";
+
+$trresult = mysqli_query($conn, $trsql);
+$trrow = mysqli_fetch_assoc($trresult);
+$highestRatedName = $trrow['name'];
+// total user registered
+
+$tursql = "SELECT COUNT(*) as personal_count FROM users WHERE user_type = 'personal'";
+
+$turresult = mysqli_query($conn, $tursql);
+$turrow = mysqli_fetch_assoc($turresult);
+$personalCount = $turrow['personal_count'];
+
 ?>
 <h2 id='th-admin-head'>Admin DashBoard</h2>
 <div id="report-placement">
@@ -36,18 +67,18 @@ include'adminsidebar.php';
 </div>
 <div id="report-block">
   <img src="photo/wrench.png" alt="">
-    <label id="report-heading">Most Worked Contact: </label>
-    <p id="report-data">Triyani Construction</p>
+    <label id="report-heading">Most Working Contact: </label>
+    <p id="report-data"><?php echo $mostConnectedName; ?></p>
 </div>
 <div id="report-block">
   <img src="photo/star-rated.png" alt="">
     <label id="report-heading">Top Rated Contact: </label>
-    <p id="report-data">Triyani Construction</p>
+    <p id="report-data"><?php echo $highestRatedName; ?></p>
 </div>
 <div id="report-block">
   <img src="photo/profile-user.png" alt="">
     <label id="report-heading">Total Users Registered: </label>
-    <p id="report-data">40</p>
+    <p id="report-data"><?php echo $personalCount; ?></p>
 </div>
 </div>
 </body>
