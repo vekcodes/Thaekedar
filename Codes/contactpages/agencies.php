@@ -52,7 +52,6 @@ if($check_agency){
       //card display
       echo '<div id="contact-cards">
       <img src="../'.$row['photo'] .'" alt="agency-photo" id="contact-photo">
-      <img src="../photo/Group 25.png" id="top-rated">
       <p id="contact-name">'.$row['name'].'</p>
       <p id="contact-location">'.$row['location'].'</p>
       <div id="gtcn-rating">

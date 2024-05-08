@@ -54,7 +54,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   ?>
 <div id="signup-bx">
 
-<form action="signupRequest.php" method="post" name="signupform">
+<form action="./request/signupRequest.php" method="post" name="signupform">
   <div class="form-fields">
   <label>Name</label> <br>
   <input type="text" placeholder="Enter Name" name="name" required><br>

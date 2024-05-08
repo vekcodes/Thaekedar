@@ -36,15 +36,15 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) && $user_type !
     <img src="photo/thaekedarlogo.png" alt="logo" id="img-logo">
     <div class="nav-link-div">
         <div><a class="nav-link" href="index.php">Home</a></div>
-        <a href="agencies.php"><div class="nav-link">Agencies </div></a>
+        <a href="./contactpages/agencies.php"><div class="nav-link">Agencies </div></a>
         <div class="dropdown">
 
           <div class="nav-link" id="peoples">Peoples</div>
 
           <div class="dropdown-content">
-            <a href="interiordesigner.php">Interior Designer</a>
-            <a href="architect.php">Architect</a>
-            <a href="engineer.php">Engineer</a>
+            <a href="./contactpages/interiordesigner.php">Interior Designer</a>
+            <a href="./contactpages/architect.php">Architect</a>
+            <a href="./contactpages/engineer.php">Engineer</a>
           </div>
         </div>
         <a href="suppliers.php"><div class="nav-link">Suppliers</div></a>

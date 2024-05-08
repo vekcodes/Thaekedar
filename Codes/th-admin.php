@@ -37,7 +37,7 @@ $sql = "SELECT contacts.name, COUNT(connected.c_id) as count
 
 $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    $mostConnectedName = $row['name'];
+    $mostConnectedName = $row['name'] ?? 'No data';
 // Top rated Contact
 $trsql = "SELECT contacts.name, SUM(rating_comment.rating) as total_rating
         FROM rating_comment
@@ -48,7 +48,7 @@ $trsql = "SELECT contacts.name, SUM(rating_comment.rating) as total_rating
 
 $trresult = mysqli_query($conn, $trsql);
 $trrow = mysqli_fetch_assoc($trresult);
-$highestRatedName = $trrow['name'];
+$highestRatedName = $trrow['name'] ?? 'No data';
 // total user registered
 
 $tursql = "SELECT COUNT(*) as personal_count FROM users WHERE user_type = 'personal'";
@@ -56,14 +56,21 @@ $tursql = "SELECT COUNT(*) as personal_count FROM users WHERE user_type = 'perso
 $turresult = mysqli_query($conn, $tursql);
 $turrow = mysqli_fetch_assoc($turresult);
 $personalCount = $turrow['personal_count'];
+//most viewed contact
+$mvcsql = "select contacts.name from contacts where contacts.c_id =(
+  select views.c_id from views group by views.c_id order by sum(views.view) DESC limit 1
+)";
 
+$mvcresult = mysqli_query($conn, $mvcsql);
+$mvcrow = mysqli_fetch_assoc($mvcresult);
+$mvc = $mvcrow['name'] ?? "No Data";
 ?>
 <h2 id='th-admin-head'>Admin DashBoard</h2>
 <div id="report-placement">
 <div id="report-block">
   <img src="photo/point-of-view.png" alt="">
     <label id="report-heading">Most Viewed Contact: </label>
-    <p id="report-data">Triyani Construction</p>
+    <p id="report-data"><?php echo $mvc; ?></p>
 </div>
 <div id="report-block">
   <img src="photo/wrench.png" alt="">
