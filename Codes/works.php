@@ -62,7 +62,20 @@ while($wrow = mysqli_fetch_array($wsql_run)){
    <?php }else{ ?>
       <h3>Rated: Not Rated By Client</h3>
       <h3>Comment: No Comment By Client</h3>
-   <?php } ?>
+   <?php }
+   $c_id = $wrow['c_id'];
+   $user_id = $wrow['user_id'];
+   $datesql = 'select * from connected where c_id = '.$c_id.' and user_id = '.$user_id;
+   $dateresult = mysqli_query($conn,$datesql);
+   $date = mysqli_fetch_assoc($dateresult);
+   if($date && isset($date['timestamp']) && isset($date['enddate'])){
+    ?>
+     <h3>Startdate:<?php echo $date['timestamp'];?> </h3>
+     <h3>Enddate: <?php echo $date['enddate'];?> </h3>
+   <?php } else{ ?>
+      <h3>Startdate:<?php echo $date['timestamp'];?> </h3>
+      <h3>Enddate: Inprocess</h3>     
+    <?php }?>
   </div>
   </div>
 <?php } ?>

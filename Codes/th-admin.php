@@ -1,11 +1,9 @@
 <?php
 include ('./utils/db_connect.php');
 session_start();
-$user_id = $_SESSION['user_id'];
-$sql = "select user_type from users where user_id = '$user_id'";
-$result = mysqli_query($conn,$sql);
-$user_type = mysqli_fetch_assoc($result);
-if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])&& $user_type['user_type']=='admin'){ ?>
+// $user_id = $_SESSION['user_id'];
+// print_r($_SESSION);
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,10 +28,11 @@ include'adminsidebar.php';
 $sql = "SELECT contacts.name, COUNT(connected.c_id) as count
         FROM connected
         JOIN contacts ON connected.c_id = contacts.c_id
-        WHERE connected.request_status = 'accepted'
+        WHERE connected.request_status = 'accepted' OR connected.request_status = 'finished'
         GROUP BY connected.c_id, contacts.name
         ORDER BY count DESC
         LIMIT 1";
+
 
 $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -51,7 +50,7 @@ $trrow = mysqli_fetch_assoc($trresult);
 $highestRatedName = $trrow['name'] ?? 'No data';
 // total user registered
 
-$tursql = "SELECT COUNT(*) as personal_count FROM users WHERE user_type = 'personal'";
+$tursql = "SELECT COUNT(*) as personal_count FROM users";
 
 $turresult = mysqli_query($conn, $tursql);
 $turrow = mysqli_fetch_assoc($turresult);

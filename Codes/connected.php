@@ -15,6 +15,20 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) && $user_type['
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php include 'header.php'?>
   <title>User Dashboard</title>
+<!-- check function in js -->
+<script>
+  function checkfinished(){
+    var done = document.getElementById('notify-btn-cancel');
+    done.addEventListener('click', function(event){
+      var confirmAction = confirm('You have finished working with this client');
+      if(confirmAction){
+        done.form.submit();
+      }else{
+        event.preventDefault();
+      }
+    });
+  }
+</script>
 </head>
 <body>
   <?php
@@ -50,6 +64,7 @@ while($row = mysqli_fetch_array($fetch_connected)){
   </div>';
   }}?>
 
+
 <!-- Clients -->
 <?php
 // echo $user_id;
@@ -83,7 +98,7 @@ while($row = mysqli_fetch_array($fetch_connected)){
     <form action="./request/workrequestresponse.php" method="post">
     <input type="hidden" name="c_id" value="'.$row['c_id'].'">
     <input type="hidden" name="user_id" value="'.$row['user_id'].'">
-    <button id="notify-btn-cancel" style="margin: 5px 0 0 15px;" name="cancel">Remove</button>
+    <button id="notify-btn-cancel" style="margin: 5px 0 0 15px;" name="finished" onclick="checkfinished()">Finished working</button>
     </form>
     </div>';
   }}}?>
@@ -97,3 +112,4 @@ elseif($user_type['user_type']=='admin'){
 else{
  header("Location: login.php"); 
 }?>
+

@@ -69,7 +69,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
   </div>
   <div class="form-fields">
   <label>Password</label><br>
-  <input type="password" placeholder="Enter Password" name="password" id="pass" required><br>
+  <input type="password" placeholder="Enter Password" name="password" id="pass"  oninput="validatePassword()"required><br>
   </div>
   <div class="form-fields">
   <label>Confirm Password</label><br>
@@ -112,6 +112,24 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
     </div>
     <div id="ft-copyright">Copyright © 2024 Thaekedar. All rights reserved.</div>
 </div>
-<script src="script.js"></script>
+<script>
+const passwordInput = document.getElementById('pass');
+const submitButton = document.getElementById('signup-button');
+
+submitButton.addEventListener('click', function(event) {
+  const passwordValue = passwordInput.value;
+  
+  // Validation logic
+  var regex = /^(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+  if (!regex.test(passwordValue)) {
+    event.preventDefault(); // Prevent form submission
+    window.location.href = 'signup.php?error=Strong password required';
+  }
+});
+setTimeout(function(){
+    document.getElementById('messbx').style.display = 'none';
+  }, 5000);
+</script>
 </body>
 </html>

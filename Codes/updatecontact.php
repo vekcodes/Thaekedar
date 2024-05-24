@@ -9,10 +9,7 @@ $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result);
 //user == admin check
 $user_id = $_SESSION['user_id'];
-$csql = "select user_type from users where user_id = '$user_id'";
-$cresult = mysqli_query($conn,$csql);
-$user_type = mysqli_fetch_assoc($cresult);
-if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) && $user_type['user_type']=='admin'){ ?>
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){ ?>
 
 <!DOCTYPE html>
 <html lang="en">

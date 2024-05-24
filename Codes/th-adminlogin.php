@@ -1,14 +1,9 @@
 <?php
 include ('./utils/db_connect.php');
 session_start();
+// print_r($_SESSION);
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])){
-  $user_id = $_SESSION['user_id'];
-  $sql = "select user_type from users where user_id = '$user_id'";
-  $result = mysqli_query($conn,$sql);
-  $user_type = mysqli_fetch_assoc($result);
-  if($user_type['user_type']=='admin'){  
   header("Location: th-admin.php");
-  }
     exit();
 }else{
 

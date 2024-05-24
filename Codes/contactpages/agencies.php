@@ -149,6 +149,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
       <a href="<?php echo $row['iglink'];?>"><button class="cn-btn">Instagram</button></a>
       <a href="<?php echo $row['fblink'];?>"><button class="cn-btn">Facebook</button></a>
       <a href="<?php echo $row['weblink'];?>"><button class="cn-btn">Website</button></a>
+      <form action="../works.php"><button class="cn-btn" >Show works</button> <input type="hidden" value="<?php echo $row['c_id']?>" name='c_id'></form>
     </div>
   </div>
   <?php 
@@ -170,35 +171,22 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']) ){
   </div>
   <form id="workreq" action="../request/workrequest.php" method="post">
     <input type="hidden" value="<?php echo $row['c_id']?>" name='c_id'>
-    <p>Send Work Request:</p>
+    <div id="cmnt">
+      <p>Work Message :</p>
+      <input type="text" name="work-mess" id="work-mess" required placeholder="Enter your message">
+    </div>
     <?php 
     $srsql= 'select * from connected where user_id = '.$_SESSION['user_id'].' and c_id = '.$row['c_id'];
     $sresult= mysqli_query($conn,$srsql);
-    if(mysqli_num_rows($sresult) === 0){
+    $row_result = mysqli_fetch_assoc($sresult);
+    if(mysqli_num_rows($sresult) === 0 or $row_result['request_status'] == 'accepted' or $row_result['request_status'] == 'declined' or $row_result['request_status'] == 'finished'){
     ?>
     <button id="req"> Send Request</button>
     <?php }
-    else{ ?>
+    elseif($row_result['status'] == 'inprogress'){ ?>
     <button id="req" disabled>Requested....</button>
     <?php }?>
-
-  </form>
-<div id="cmnt">
-  <p id="cmnth">Comments :</p><form action="../works.php"><button class="cn-btn" style="position: absolute;left: 500px;top: 360px;">Show works</button> <input type="hidden" value="<?php echo $row['c_id']?>" name='c_id'></form>
-  <div id="slide-comments">
-  <?php 
-  $cnmtsql= 'select comment from rating_comment where c_id = '.$row['c_id'];
-  $cnmtresult= mysqli_query($conn,$cnmtsql);
-
-  if(mysqli_num_rows($cnmtresult)>0){ 
-    $cnmtrow = mysqli_fetch_array($cnmtresult); ?>
-    <p><?php echo $cnmtrow['comment']; ?></p>
-  <?php }
-  else{
-    echo '<p>No comments yet</p>';
-  } ?>
-  </div>
-</div>
+</form>
 </div>
 <?php }}}?>
 <script>

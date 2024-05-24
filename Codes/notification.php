@@ -47,6 +47,7 @@ if($row['status'] == 'declined'){?>
 <?php if($row['status'] == 'inprocess'){?>
   <div id="notify">
   <p id="cn-notify"><span>Thaekedar says:</span><br> Your'e contact is pending for approval</p>
+  </div>
 <?php }}?>
 
 <?php 
@@ -69,6 +70,8 @@ while($row = mysqli_fetch_array($conresult)){
   <form action="./request/workrequestresponse.php" method="post">
   <input type="hidden" name= 'user_id' value="<?php echo $uname['user_id']; ?>">
   <input type="hidden" name="c_id" value="<?php echo $c_id;?>">
+  <b>Message:</b>
+  <p style="margin:0px; margin-top: 5px; margin-bottom:10px"><?php echo $row['work_message']?></p>
   <button id="notify-btn-accept"name='accept'>Accept</button>
   <button id="notify-btn-cancel" name="cancel">Cancel</button>
   </form>

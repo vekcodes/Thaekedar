@@ -12,6 +12,12 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
     header("Location: ../signup.php?error=fill up the form");
     exit;
   }
+  //checking if phone number exist in the database
+  $copyPhone = mysqli_query($conn, "select * from users where phone_number = '$phoneno'" );
+  if(mysqli_num_rows($copyPhone) > 0){
+    header('Location: ../signup.php?error=Phone number already exists');
+    exit;
+}
   //checking email through function made in php 
   if(validateEmail($email) === false){
     header("Location: ../signup.php?error=Invalid email");

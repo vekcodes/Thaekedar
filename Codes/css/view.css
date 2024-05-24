@@ -111,12 +111,24 @@
 }
 #req{
   height: 35px;
-  width: 260px;
+  width: 200px;
   background-color: #FFCC00;
   font-family: "montserrat";
   color: #003366;
   border: none;
   border-radius: 4px;
+  transform: translate(610px, -35px);
+}
+#work-mess{
+  height: 50px;
+  width: 550px;
+  border-radius: 6px;
+  font-family: 'reem kufi';
+  font-size: 18px;
+  color: #003366;
+  border-color: #7A7A7A;
+  text-indent: 10px;
+  border: 1px solid #003366;
 }
 #req:hover{
   background-color: #ffda47;
